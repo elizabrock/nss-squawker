@@ -3,6 +3,7 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'haml-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'pg'
@@ -21,4 +22,8 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'launchy'
 end

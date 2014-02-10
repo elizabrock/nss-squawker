@@ -1,3 +1,4 @@
+@wip
 Feature: Create a squeek
   In order to vent my spleen
   As an internet heathen
@@ -7,12 +8,12 @@ Feature: Create a squeek
     When I go to the homepage
     Then I should see "Squeek here"
     When I press "Squawk"
-    Then I should see: "Your message can't be blank"
+    Then I should see: "Your squeek can't be blank"
 
   Scenario: Creating a message with a body succeeds
     When I go to the homepage
     Then I should see "Squeek here"
     When I fill in "Squeek here" with "I hate everything"
     And I press "Squawk"
-    Then I should see: "Your message has been posted"
+    Then I should see: "Your squeek has been posted"
     And I should see "I hate everything" within the activity feed
