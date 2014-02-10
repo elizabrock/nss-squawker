@@ -17,6 +17,7 @@ group :doc do
 end
 
 group :test, :development do
+  gem 'cucumber-rails'
   gem 'rspec'
   gem 'rspec-rails'
 end
