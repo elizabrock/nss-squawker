@@ -3,6 +3,7 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'devise'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
