@@ -50,6 +50,6 @@ Then(/^there should be a squeek "(.*?)" in the database$/) do |text|
   squeek_count.should == 1
 end
 
-Given(/^the user "(.*?)" with "(.*?)"$/) do |email, password|
-  User.create(email: email, password: password, password_confirmation: password)
+Given(/^the user "(.*?)"\/"(.*?)" with "(.*?)"$/) do |username, email, password|
+  User.create(username: username, email: email, password: password, password_confirmation: password)
 end
