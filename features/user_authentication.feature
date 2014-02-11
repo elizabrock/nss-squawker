@@ -21,12 +21,9 @@ Feature: User authentication
     And I should not see "Sign Out"
     And I should see "Sign In"
 
-  @wip
   Scenario: User can log in and log out
-    Given the following user:
-      | email    | joe@example.com |
-      | password | password        |
-    When I go to the home page
+    Given the user "joe@example.com" with "password"
+    When I go to the homepage
     And I follow "Sign In"
     And I fill in "joe@example.com" for "Email"
     And I fill in "password" for "Password"

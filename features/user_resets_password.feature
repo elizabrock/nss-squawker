@@ -1,4 +1,3 @@
-@wip
 Feature: User resets password
   As a user
   I want to be able to sign up/sign in/sign out
@@ -8,9 +7,7 @@ Feature: User resets password
   - Standard login/logout
 
   Background:
-    Given the following user:
-      | email    | user@email.com |
-      | password | password       |
+    Given the user "user@email.com" with "password"
 
   Scenario: Happy path
     Given I am on the sign in page
@@ -26,8 +23,13 @@ Feature: User resets password
     And I fill in "Confirm new password" with "secret!!"
     And I press "Change my password"
     Then I should see "Your password was changed successfully. You are now signed in."
-    When I sign out
-    Then I should be able to sign in as "user@email.com" with the password "secret!!"
+    When I click "Sign Out"
+    Then I should see "Sign In"
+    When I click "Sign In"
+    When I fill in "Email" with "user@email.com"
+    And I fill in "Password" with "secret!!"
+    And I press "Sign in"
+    Then I should see "Signed in successfully."
 
   Scenario: Happy path
     Given I am on the sign in page
