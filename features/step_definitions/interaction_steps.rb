@@ -2,6 +2,10 @@ And "show me the page" do
   save_and_open_page
 end
 
+Given(/^the squeek "(.*?)"$/) do |body|
+  Squeek.create(body: body)
+end
+
 When(/^I go to the homepage$/) do
   visit root_path
 end

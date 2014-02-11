@@ -1,9 +1,7 @@
 class SqueeksController < ApplicationController
-  def index
-    @squeeks = Squeek.all
-  end
+  before_filter :load_squeeks
 
-  def new
+  def index
     @squeek = Squeek.new
   end
 
@@ -15,7 +13,13 @@ class SqueeksController < ApplicationController
       redirect_to squeeks_path
     else
       flash[:alert] = "Your squeek couldn't be posted. #{@squeek.errors.full_messages.join(" ")}"
-      render :new
+      render :index
     end
+  end
+
+  private
+
+  def load_squeeks
+    @squeeks = Squeek.all
   end
 end
