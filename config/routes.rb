@@ -4,7 +4,7 @@ Squawker::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'squeeks#new'
-  resources :squeeks, only: [:create]
+  resources :squeeks, only: [:index, :create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

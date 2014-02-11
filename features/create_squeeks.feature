@@ -1,4 +1,3 @@
-@wip
 Feature: Create a squeek
   In order to vent my spleen
   As an internet heathen
@@ -16,4 +15,5 @@ Feature: Create a squeek
     When I fill in "Squeek here" with "I hate everything"
     And I press "Squawk"
     Then I should see: "Your squeek has been posted"
-    And I should see "I hate everything" within the activity feed
+    And there should be a squeek "I hate everything" in the database
+    And I should see "I hate everything" within the squeeks feed
