@@ -1,4 +1,3 @@
-@wip
 Feature: Create a squeek
   In order to vent my spleen
   As an internet heathen
@@ -9,10 +8,14 @@ Feature: Create a squeek
     Then I should see "Sign in or Sign up to post a squeek"
     And I should not see "Squeek here"
 
+  Scenario: Logged in users aren't prompted to log in
+    Given I'm signed in as "joe"
+    Then I should not see "Sign in or Sign up to post a squeek"
+    And I should see "Squeek here"
+
   Scenario: Trying to create a blank message fails
     Given I'm signed in as "joe"
     When I go to the homepage
-    Then I should see "Squeek here"
     When I press "Squawk"
     Then I should see: "Your squeek can't be blank"
 

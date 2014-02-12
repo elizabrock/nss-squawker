@@ -1,7 +1,10 @@
 SQUEEK!
 
-= render partial: "squeeks/new"
+- if user_signed_in?
+  = render partial: "squeeks/new"
+- else
+  %p Sign in or Sign up to post a squeek
 
 %ul.squeeks
   - @squeeks.each do |squeek|
-    %li= squeek.body
+    %li= "@#{squeek.user.username}: #{squeek.body}"
