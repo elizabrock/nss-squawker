@@ -67,6 +67,7 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.0.2)
+    fabrication (2.9.7)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     haml (4.0.5)
@@ -179,6 +180,7 @@ DEPENDENCIES
   database_cleaner
   devise
   email_spec
+  fabrication
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails

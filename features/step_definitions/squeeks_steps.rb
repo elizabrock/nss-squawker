@@ -1,5 +1,5 @@
 Given(/^the squeek "(.*?)" by "(.*?)"$/) do |body, username|
-  user = User.create(email: "#{username}@example.com", username: username, password: "password", password_confirmation: "password")
+  user = Fabricate(:user, username: username)
   Squeek.create!(body: body, user: user)
 end
 

@@ -10,7 +10,7 @@ describe Squeek do
   end
   context "with a user" do
     it "should be valid" do
-      user = User.create(email: "test@example.com", password: "password", password_confirmation: "password")
+      user = Fabricate(:user)
       squeek = Squeek.new(body: "Foo", user: user)
       # Equivalent to: assert squeek.valid?
       squeek.should be_valid
