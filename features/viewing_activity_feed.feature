@@ -1,4 +1,3 @@
-@wip
 Feature: Viewing activity feed
   In for the application to be intuitive
   As a visitor

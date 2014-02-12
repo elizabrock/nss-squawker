@@ -1,5 +1,6 @@
-Given(/^the squeek "(.*?)"$/) do |body|
-  Squeek.create(body: body)
+Given(/^the squeek "(.*?)" by "(.*?)"$/) do |body, username|
+  user = User.create(email: "#{username}@example.com", username: username, password: "password", password_confirmation: "password")
+  Squeek.create!(body: body, user: user)
 end
 
 Then(/^there should be a squeek "(.*?)" in the database$/) do |text|
