@@ -24,6 +24,7 @@ group :test, :development do
   gem 'fabrication'
   gem 'rspec'
   gem 'rspec-rails'
+  gem "letter_opener"
 end
 
 group :test do
