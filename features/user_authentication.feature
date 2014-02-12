@@ -22,7 +22,6 @@ Feature: User authentication
     Then I should not see "Sign Out"
     And I should see "Sign In"
 
-  @wip
   Scenario: Confirm that signing up with username lets you log in with username
     When I go to the homepage
     And I follow "Sign Up"
