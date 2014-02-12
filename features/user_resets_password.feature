@@ -7,7 +7,9 @@ Feature: User resets password
   - Standard login/logout
 
   Background:
-    Given the user "jill"/"user@email.com" with "password"
+    Given the following user:
+      | username | jill           |
+      | email    | user@email.com |
 
   Scenario: Happy path
     Given I am on the sign in page

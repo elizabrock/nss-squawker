@@ -1,7 +1,3 @@
-Given(/^the user "(.*?)"\/"(.*?)" with "(.*?)"$/) do |username, email, password|
-  Fabricate(:user, username: username, email: email, password: password, password_confirmation: password)
-end
-
 Given(/^I'm signed in as "(.*?)"$/) do |username|
   Fabricate(:user, username: username)
   visit new_user_session_path
