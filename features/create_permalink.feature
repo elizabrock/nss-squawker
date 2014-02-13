@@ -1,9 +1,12 @@
-<pre>
-	As a squaker I want to post hyperlinks on other sites that will link to my squeeks.
+Feature: Permalink
+	In order to see the URL in human-readable keywords
+	As a user
+	I want see the correct URL for the page and post that I am viewing
 
-	Usage: ./features/permalink
-
-	Acceptance Criteria:
-	* Creates a pretty URL
-</pre>
-
+Scenario: User "millerkatiej" logins in
+	Given I have entered my username and password correctly
+	When I press "login"
+	Then I am redirected to my feed
+	When I press "My Profile" link
+	Then I am redirected to my profile page
+	Then the URL will display as "http://squaker.com/users/millerkatiej" 
