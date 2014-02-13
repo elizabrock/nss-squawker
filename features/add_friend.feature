@@ -6,19 +6,19 @@ Feature: Add Friend
   -Standard email is sent when Add Friend is clicked
   -Confirmation of acceptance is sent via. email
 
+Background: 
+	Given a user named "joe"
+	And a user named "sally"
 
 Scenario: User clicks Add Friend Button
- Given the following user: 
- | username   |     joe         |
- | email      | joe@example.com |
+ Given I am logged in as "joe"
+ When I go to "sally's" profile
+ And I click the "Add Friend" button on her page
+ Then I should see "Your friend request has been sent"
 
- When I go to "sally's" page
- Then I should see an "Add Friend" button
- When I click the "Add Friend" button
- Then "sally@example.com" should recieve an email
- And when "sally" opens the email
- Then "sally" should see "You have a new freind request from @joe"
- When "sally" clicks "View joes page"
- Then "sally" should see "joe's" page
- When "sally" clicks the "Add Friend" button on "joe's" page
- Then "joe" and "sally" are now "Friends"
+Scenario: Recieve Accepted Friend Request
+	Given I am logged in as "joe"
+	When "sally" accepts my friend request
+	Then I should see "@sally accepted your friend request"
+
+
