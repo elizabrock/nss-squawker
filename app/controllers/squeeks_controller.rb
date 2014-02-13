@@ -13,7 +13,6 @@ class SqueeksController < ApplicationController
     if @squeek.save
       flash[:notice] = "Your squeek has been posted"
       redirect_to squeeks_path
-      binding.pry
     else
       flash[:alert] = "Your squeek couldn't be posted. #{@squeek.errors.full_messages.join(" ")}"
       render :index
