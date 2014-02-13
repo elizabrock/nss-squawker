@@ -13,7 +13,7 @@ Feature: @Mention sends email notification
     And I press "Squawk"
     Then I should see: "Your squeek has been posted"
     And there should be a squeek "I can't stand @joe" in the database
-    And I should see "@jane: I can't stand @joe" within the squeeks feed
+    And I should see "@jane: I hate everything" within the squeeks feed
     When I click "@joe"
     Then I should be on joe's profile page
 
@@ -25,9 +25,9 @@ Feature: @Mention sends email notification
     Then they should receive an email with subject "Someone has mentioned you in a squeek!"
     And they open the email with subject "Someone has mentioned you in a squeek!"
     Then they should see "@jane mentioned you in a squeek!" in the email body
-    Then they should see "I can't stand @joe@example.com" in the email body
+    Then they should see "I can't stand @joe" in the email body
 
   Scenario: User clicks on mentioned username within squeek
     When I go to the homepage
-    And I click "@joe" within the squeeks feed
+    And I click "@joe"
     Then I should be on joe's profile page
