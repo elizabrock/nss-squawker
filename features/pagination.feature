@@ -4,11 +4,11 @@ Feature: Viewing activity feed with pagination
   I want to see squeeks split into pages
 
   Background:
-    Given a set of 26 squeeks
+    Given a set of 4 squeeks
 
   Scenario: Squeeks per page is limited
     When I go to the homepage
-    Then I should see 25 squeeks
+    Then I should see 3 squeeks
 
   Scenario: Pagination links are shown
     When I go to the homepage
@@ -21,16 +21,14 @@ Feature: Viewing activity feed with pagination
   Scenario: Previous and Next links change pages correctly
     When I go to the homepage
     And I click "Next"
-    Then I should see "Squeek 26"
-    # assumes 25 squeeks per page
+    Then I should see "Squeek 4"
     And I click "Prev"
     Then I should see "Squeek 1"
 
   Scenario: Page number links take you to the correct page
     When I go to the homepage
     And I click "2"
-    Then I should see "Squeek 26"
-    # assumes 25 squeeks per page
+    Then I should see "Squeek 4"
 
   Scenario: Previous should not be on home page
     When I go to the homepage
