@@ -7,4 +7,4 @@ SQUEEK!
 
 %ul.squeeks
   - @squeeks.each do |squeek|
-    %li= "@#{squeek.user.username}: #{squeek.body}"
+    %li= "@#{squeek.user.username}: #{squeek.body} #{squeek.location}"
