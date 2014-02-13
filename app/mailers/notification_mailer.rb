@@ -1,4 +1,4 @@
-class Notifier < ActionMailer::Base
+class NotificationMailer < ActionMailer::Base
 
   default from: "from@example.com"
 
