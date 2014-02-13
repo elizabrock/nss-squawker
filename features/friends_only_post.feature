@@ -5,7 +5,6 @@ Feature: Create friends-only post
 
   Background:
     Given a user named "bill"
-    And "bill" has a friend named "joe"
 
   Scenario: User has ability to make a friends only post
     Given I am logged in as "bill"
