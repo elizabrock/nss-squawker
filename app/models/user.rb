@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  # def to_param
+  #   [id, "katie"].join("-")
+  # end
+
+  extend FriendlyId
+  friendly_id :username
+
   include Gravtastic
   has_gravatar
 

@@ -184,8 +184,8 @@ DEPENDENCIES
   devise
   email_spec
   fabrication
+  friendly_id
   gravtastic
-
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
