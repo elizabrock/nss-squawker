@@ -23,5 +23,14 @@ Scenario: Admin should be able to delete tweets
 
 Scenario: Admin should be able to edit user emails
   Given that I am on the admin portal
-  Then I should press "Users"
+  And I should press "Users"
+  Then I should go to Users Index
   And I should see "edit email"
+  # This wording will change like the feature above. Unsure of how this
+  # functionality works with activeadmin so unsure of steps to define
+  Then I press "edit email"
+  And I should go to Edit Email Form
+  And I  fill in "example@mail.com" for "email"
+  And I press "submit changes"
+  # Another pending step. Please help eliza!
+  Then email should be changed
