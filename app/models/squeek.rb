@@ -15,6 +15,7 @@ class Squeek < ActiveRecord::Base
           if mentioned_user
             new_string = "<a href='/users/#{mentioned_user.id}'>@#{mention}</a>"
             self.body = self.body.gsub("@#{mention}",new_string)
+            mention_notify(mentioned_user)
           end
         end
       end
@@ -29,5 +30,9 @@ class Squeek < ActiveRecord::Base
       else
         false
       end
+    end
+
+    def mention_notify mentioned_user
+      NotificationMailer.mention_email(mentioned_user,self.user,self.body).deliver
     end
 end
