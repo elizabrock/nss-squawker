@@ -6,3 +6,5 @@ Given(/^I'm signed in as "(.*?)"$/) do |username|
   click_button "Sign in"
   page.should have_content("Signed in successfully")
 end
+
+#OmniAuth through Twitter
