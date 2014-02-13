@@ -14,6 +14,11 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'simple_form'
 
+gem 'compass-rails'
+gem 'zurb-foundation'
+
+gem 'rb-inotify', '~> 0.9'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
