@@ -1,8 +1,8 @@
 @wip
-Feature: Auto suggesting usernames
-  In the event you forget the full username
-  As a user
-  I want to start typing a name and get corresponding suggestions.
+Feature: Automatically suggesting usernames
+  As a squawker with connections
+  In order to easily type the usernames of those who I'm connected with
+  I want to get username suggestions as type them
 
   Scenario: User starts typing @someone
     Given the squeek "@leo"
