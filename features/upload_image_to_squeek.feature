@@ -3,24 +3,6 @@ Feature: Upload Image to Squeek
   As an internet heathern
   I want to upload images to my squeeks
 
-  Scenario: Not logged in
-    When I go to the homepage
-    Then I should not see "Select Photo"
-
-  Scenario: Logged in users should see select photo button
-    Given I'm signed in as "rachel"
-    Then I should see "Select photo"
-
-  Scenario: Logged in users should see upload photo button
-    Given I'm signed in as "rachel"
-    Then I should see "Upload"
-
-  Scenario: Trying to upload nothing fails
-    Given I'm signed in as "rachel"
-    When I go to the homepage
-    When I press "Upload"
-    Then I should see: "Please choose an image"
-
   Scenario: Uploading a file with .jpeg or .png extensions Succeeds
     Given I'm signed in as "rachel"
     When I go to the homepage
@@ -32,6 +14,7 @@ Feature: Upload Image to Squeek
     Then I should see: "Your squeek has been posted"
     And there should be an image "cat.png" in the database
     And I should see "cat.png" within the squeeks feed
+    And "cat.png" should have a width "500px"
 
   Scenario: Uploading a file without .jpeg or .png extensions fails
     Given I'm signed in as "rachel"
