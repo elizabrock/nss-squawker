@@ -1,7 +1,14 @@
+Given(/^a set of (\d+) squeeks$/) do |number|
+  user = Fabricate(:user, username: "username")
+  number.to_i.times do |num|
+    Squeek.create!(body: "Squeek #{num + 1}", user: user)
+  end
+end
+
 Then(/^I should see (\d+) squeeks$/) do |number|
   page.should have_css("ul.squeeks li", count: number)
 end
 
 Then(/^I should see pagination links$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_css("nav", count: 2)
 end
