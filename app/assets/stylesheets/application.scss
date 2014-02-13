@@ -1,3 +1,17 @@
+@import "foundation";
+
+body
+{
+background-color:yellow;
+}
+h1
+{
+background-color:#00ff00;
+}
+p
+{
+background-color:rgb(255,0,255);
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -9,5 +23,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ //= require foundation_and_overrides
+ *= require foundation_and_overrides
  *= require_tree .
  */
