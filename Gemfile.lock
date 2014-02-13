@@ -72,6 +72,7 @@ GEM
       activerecord (~> 4.0.0)
     gherkin (2.12.2)
       multi_json (~> 1.3)
+    gravtastic (3.2.6)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -183,7 +184,7 @@ DEPENDENCIES
   devise
   email_spec
   fabrication
-  friendly_id
+  gravtastic
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
