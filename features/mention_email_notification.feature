@@ -29,5 +29,4 @@ Feature: @Mention sends email notification
   Scenario: User clicks on mentioned username within squeek
     When I go to the homepage
     And I press "@joe@example.com" within the squeeks feed
-    Then I should see: "Profile"
-    And I should see: "joe@example.com"
+    Then I should see: "@joe's profile"
