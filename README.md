@@ -17,4 +17,5 @@ This is a basic twitter clone.
 
 ## Badges of Honor
 
+[![Build Status](https://travis-ci.org/elizabrock/NSS-futureperfect-CLI.png)](https://travis-ci.org/elizabrock/NSS-futureperfect-CLI)
 [![Code Climate](https://codeclimate.com/repos/52fd1f7869568042a7000c75/badges/d946e749b28293239339/gpa.png)](https://codeclimate.com/repos/52fd1f7869568042a7000c75/feed)
