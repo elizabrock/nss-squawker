@@ -17,4 +17,6 @@ This is a basic twitter clone.
 
 ## Badges of Honor
 
-[![Code Climate](https://codeclimate.com/repos/52fd1f7869568042a7000c75/badges/d946e749b28293239339/gpa.png)](https://codeclimate.com/repos/52fd1f7869568042a7000c75/feed)
+[![Build Status](https://travis-ci.org/elizabrock/nss-squawker.png)](https://travis-ci.org/elizabrock/nss-squawker)
+<a href="https://codeclimate.com/repos/52fd1f7869568042a7000c75/feed"><img src="https://codeclimate.com/repos/52fd1f7869568042a7000c75/badges/d946e749b28293239339/gpa.png"></a>
+<a href="https://codeclimate.com/repos/52fd1f7869568042a7000c75/feed"><img src="https://codeclimate.com/repos/52fd1f7869568042a7000c75/badges/d946e749b28293239339/coverage.png"></a>
