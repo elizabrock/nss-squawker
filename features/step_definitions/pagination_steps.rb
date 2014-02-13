@@ -1,7 +1,3 @@
-World(FabricationMethods)
-
-Fabrication::Config.register_with_steps = true
-
 Then(/^I should see (\d+) squeeks$/) do |number|
   page.should have_css("ul.squeeks li", count: number)
 end
