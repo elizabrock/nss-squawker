@@ -6,6 +6,7 @@ Feature: Automatically suggesting usernames
 
   Background:
     Given the following users:
+      | username      |
       | TheRealNimoy  |
       | CanadianImage |
       | LilNemo       |
