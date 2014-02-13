@@ -10,5 +10,5 @@ Then(/^I should see (\d+) squeeks$/) do |number|
 end
 
 Then(/^I should see pagination links$/) do
-  page.should have_css("nav", count: 2)
+  page.should have_css("nav.pagination", count: 1)
 end

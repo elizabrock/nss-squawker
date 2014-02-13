@@ -23,7 +23,7 @@ Feature: Viewing activity feed with pagination
     And I click "Next"
     Then I should see "Squeek 26"
     # assumes 25 squeeks per page
-    And I click "Previous"
+    And I click "Prev"
     Then I should see "Squeek 1"
 
   Scenario: Page number links take you to the correct page
@@ -34,9 +34,9 @@ Feature: Viewing activity feed with pagination
 
   Scenario: Previous should not be on home page
     When I go to the homepage
-    Then I should not see "Previous"
+    Then I should not see "Prev"
 
   Scenario: Next should not be on the last page
-    Given 25 squeeks
     When I go to the homepage
+    And I click "Last"
     Then I should not see "Next"

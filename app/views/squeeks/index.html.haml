@@ -8,3 +8,5 @@ SQUEEK!
 %ul.squeeks
   - @squeeks.each do |squeek|
     %li= "@#{squeek.user.username}: #{squeek.body}"
+
+= paginate @squeeks
