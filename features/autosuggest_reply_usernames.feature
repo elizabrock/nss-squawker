@@ -5,14 +5,15 @@ Feature: Automatically suggesting usernames
   I want to get username suggestions as type them
 
   Background:
-    Given the following users:
+    Given I'm signed in as "joe"
+    And the following users:
       | username      |
       | TheRealNimoy  |
       | CanadianImage |
       | LilNemo       |
 
   Scenario: User starts typing @someone
-    When I type the squeek "@nim"
+    When I fill in "Squeek here" with "@nim"
     Then I should see "@TheRealNimoy" within the username dropdown field
     And I should see "@CanadianImage" within the username dropdown field
     And I should not see "@LilNemo" within the username dropdown field
