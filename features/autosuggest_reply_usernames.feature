@@ -1,0 +1,12 @@
+Feature: Auto suggesting usernames
+  In the event you forget the full username
+  As a user
+  I want to start typing a name and get corresponding suggestions.
+
+  Scenario:
+    Given the squeek "@leo"
+    Then I should see "Leonard Nimoy @TheRealNimoy" within the username dropdown field
+    And I should see "Leonardo da Vinci @daVinciSecrets" within the username dropdown field
+    And I should see "David @leo"
+    When I follow "Leonard Nimoy @TheRealNimoy"
+    Then I should see "@TheRealNimoy" within the squeek.
