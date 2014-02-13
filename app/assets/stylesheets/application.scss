@@ -1,3 +1,4 @@
+@import "foundation";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,7 +11,8 @@
  *
  *= require_self
  //= require foundation_and_overrides
-
+ *= require foundation_and_overrides
+application.scss
  *= require_tree .
  */
 @import "foundation";

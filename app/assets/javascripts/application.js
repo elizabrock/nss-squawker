@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require_tree .
 
+// include javascript files here
 $(function(){ $(document).foundation(); });
