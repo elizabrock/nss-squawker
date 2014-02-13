@@ -17,6 +17,6 @@ class User < ActiveRecord::Base
 
   protected
     def normalize_username
-      self.username = self.username.downcase
+      self.username = self.username.downcase if self.username
     end
 end
