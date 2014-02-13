@@ -4,9 +4,6 @@ Feature: Permalink
 	I want see the correct URL for the page and post that I am viewing
 
 Scenario: User "millerkatiej" logins in
-	Given I have entered my username and password correctly
-	When I press "login"
-	Then I am redirected to my feed
-	When I press "My Profile" link
+	Given I press "My Profile" link
 	Then I am redirected to my profile page
-	Then the URL will display as "http://squaker.com/users/millerkatiej" 
+	Then the URL will display as "localhost:3000/users/millerkatiej" 
