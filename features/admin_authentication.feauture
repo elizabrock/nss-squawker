@@ -5,19 +5,11 @@ Feature: Administration Authentication
   - Standard Login Form
   - No password reset
 
-  Scenario: User logs in to suite
-    When I go to the Adminstrator Portal Page
-    And I fill in "test" for Username
-    And I fill in "password" for Password
-    And I press "Continue"
-    Then I should be on the adminstrative panel page
-    And I should see "Dashboard"
+  Scenario: Admins can log into the portal
+    Given admin exists
+    When I go to Admin Portal
+    And I fill in "admin@example.com" for "Email"
+    And I fill in "password" for "Password"
+    And I press "Login"
+    Then I should see "Dashboard"
 
-  Scenario: User does not have adminstrative credentials
-    When I go to the Adminstrator Portal Page
-    And I fill in "notadmin" for Username
-    And I fill in "password" for Password
-    And I press "Continue"
-    Then I should be on the Adminstrator Portal Page
-    And I should see "Credentials incorrect. Try again"
-  
