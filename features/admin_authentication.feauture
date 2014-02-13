@@ -3,7 +3,7 @@ Feature: Administration Authentication
   I want to be able to log in to the admin suite
   and prevent non-admins from doing so
   - Standard Login Form
-  - No password reset/ 
+  - No password reset
 
   Scenario: User logs in to suite
     When I go to the Adminstrator Portal Page

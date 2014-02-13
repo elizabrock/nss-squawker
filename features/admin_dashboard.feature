@@ -14,10 +14,14 @@ Scenario: Dashboard should have squawk index
 
 Scenario: Admin should be able to delete tweets
   Given that I am on the admin portal
-  Then I should press "Squawks"
-  And I should see "Delete"
+  And I press "Squawks"
+  Then I should go to Squawks Index
+  And I should see "delete"
+  # This wording will change! Unclear how to word right now.
+  Then I press "delete squawk"
+  And Squawk should be deleted
 
-Scenario: Admin should be able to email user
+Scenario: Admin should be able to edit user emails
   Given that I am on the admin portal
   Then I should press "Users"
-  And I should see "Email"
+  And I should see "edit email"
