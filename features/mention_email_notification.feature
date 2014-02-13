@@ -9,7 +9,7 @@ Feature: @Mention sends email notification
   Scenario: User submits squeek containing an @ symbol next to a user's name
     Given I'm signed in as "jane"
     When I go to the homepage
-    And When I fill in "Squeek here" with "I can't stand @joe"
+    And I fill in "Squeek here" with "I can't stand @joe"
     And I press "Squawk"
     Then I should see "I can't stand @joe"
     When I click "@joe"
@@ -18,7 +18,7 @@ Feature: @Mention sends email notification
   Scenario: Users should be notified by email when they are mentioned in a squeek
     Given I'm signed in as "jane"
     When I go to the homepage
-    And When I fill in "Squeek here" with "I can't stand @joe"
+    And I fill in "Squeek here" with "I can't stand @joe"
     And I press "Squawk"
     Then they should receive an email with subject "Someone has mentioned you in a squeek!"
     And they open the email with subject "Someone has mentioned you in a squeek!"
