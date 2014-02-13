@@ -18,6 +18,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: squawker_development
+  host: localhost
   pool: 5
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -45,6 +46,7 @@ test: &test
   adapter: postgresql
   encoding: unicode
   database: squawker_test
+  host: localhost
   pool: 5
 
 # Eliza says: Never, ever, keep production credentials in git.
