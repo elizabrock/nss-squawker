@@ -1,1 +1,1 @@
-%li= link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}"
+%li= link_to("@#{squeek.user.username}", squeek.user) + ":" + squeek.body.html_safe
