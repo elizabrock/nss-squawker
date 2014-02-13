@@ -22,6 +22,3 @@ Scenario: User clicks Add Friend Button
  Then "sally" should see "joe's" page
  When "sally" clicks the "Add Friend" button on "joe's" page
  Then "joe" and "sally" are now "Friends"
- 
-
-
