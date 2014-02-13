@@ -11,7 +11,9 @@ Feature: @Mention sends email notification
     When I go to the homepage
     And I fill in "Squeek here" with "I can't stand @joe"
     And I press "Squawk"
-    Then I should see "I can't stand @joe"
+    Then I should see: "Your squeek has been posted"
+    And there should be a squeek "I can't stand @joe" in the database
+    And I should see "@jane: I can't stand @joe" within the squeeks feed
     When I click "@joe"
     Then I should be on joe's profile page
 
@@ -27,5 +29,5 @@ Feature: @Mention sends email notification
 
   Scenario: User clicks on mentioned username within squeek
     When I go to the homepage
-    And I press "@joe" within the squeeks feed
+    And I click "@joe" within the squeeks feed
     Then I should be on joe's profile page
