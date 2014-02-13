@@ -3,5 +3,5 @@ Feature: Geocode a Squeek
   I want to see where a squeek was created
 
 Scenario:
-  Given the squeek with an IP address in Nashville, TN, 50.197.247.249
+  Given the squeek with an IP address in Nashville, TN, "50.197.247.249"
   Then the squeek should be labeled "Nashville, TN"
