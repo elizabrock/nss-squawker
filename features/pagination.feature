@@ -14,12 +14,12 @@ Feature: Viewing activity feed with pagination
     Then I should see pagination links
 
   Scenario: Page one should show the right squeeks
-    Given sequential 26 squeeks
+    Given 26 squeeks
     When I go to the homepage
     Then I should see "Squeek 1"
 
   Scenario: Previous and Next links change pages correctly
-    Given sequential 26 squeeks
+    Given 26 squeeks
     When I go to the homepage
     And I click "Next"
     Then I should see "Squeek 26"
@@ -28,18 +28,18 @@ Feature: Viewing activity feed with pagination
     Then I should see "Squeek 1"
 
   Scenario: Page number links take you to the correct page
-    Given sequential 26 squeeks
+    Given 26 squeeks
     When I go to the homepage
     And I click "2"
     Then I should see "Squeek 26"
     # assumes 25 squeeks per page
 
   Scenario: Previous should not be on home page
-    Given sequential 26 squeeks
+    Given 26 squeeks
     When I go to the homepage
     Then I should not see "Previous"
 
   Scenario: Next should not be on the last page
-    Given sequential 25 squeeks
+    Given 25 squeeks
     When I go to the homepage
     Then I should not see "Next"
