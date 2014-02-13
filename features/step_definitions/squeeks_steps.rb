@@ -14,3 +14,7 @@ Then(/^I should see "(.*?)" within the squeeks feed$/) do |text|
     page.should have_content(text)
   end
 end
+
+Given(/^I have (\d+) squeek$/) do |num|
+  step %{that user has #{num} squeeks}
+end
