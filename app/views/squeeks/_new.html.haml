@@ -1,4 +1,5 @@
-= form_for @squeek do |f|
+= form_for @squeek, :html => {:multipart => true} do |f|
   = f.label :body, "Squeek here"
   = f.text_field :body
+  = f.file_field :image
   = f.submit "Squawk"
