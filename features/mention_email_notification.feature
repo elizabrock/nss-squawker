@@ -22,11 +22,14 @@ Feature: @Mention sends email notification
     Then I should be on joe's profile page
 
   Scenario: Users should be notified by email when they are mentioned in a squeek
-    Given I'm signed in as "jane"
+    Given the following user:
+      | username | joe |
+      | email    | joe@example.com |
+    And I'm signed in as "jane"
     When I go to the homepage
     And I fill in "Squeek here" with "I can't stand @joe"
     And I press "Squawk"
-    Then they should receive an email with subject "Someone has mentioned you in a squeek!"
+    Then "joe@example.com" should have an email
     And they open the email with subject "Someone has mentioned you in a squeek!"
     Then they should see "@jane mentioned you in a squeek!" in the email body
-    Then they should see "I can't stand @joe" in the email body
+    Then they should see "I can't stand <a href='/users/6'>@joe</a></span>" in the email body
