@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212160030) do
+ActiveRecord::Schema.define(version: 20140214053340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "relationships", force: true do |t|
+    t.integer  "broadcaster_id"
+    t.integer  "consumer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["broadcaster_id", "consumer_id"], name: "index_relationships_on_broadcaster_id_and_consumer_id", unique: true, using: :btree
+  add_index "relationships", ["broadcaster_id"], name: "index_relationships_on_broadcaster_id", using: :btree
+  add_index "relationships", ["consumer_id"], name: "index_relationships_on_consumer_id", using: :btree
 
   create_table "squeeks", force: true do |t|
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "friends_only"
   end
 
   create_table "users", force: true do |t|

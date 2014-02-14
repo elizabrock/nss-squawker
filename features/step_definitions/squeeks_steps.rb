@@ -1,6 +1,6 @@
 Given(/^the squeek "(.*?)" by "(.*?)"$/) do |body, username|
   user = Fabricate(:user, username: username)
-  Squeek.create!(body: body, user: user)
+  Squeek.create!(body: body, user: user, friends_only: false)
 end
 
 Then(/^there should be a squeek "(.*?)" in the database$/) do |text|
@@ -13,4 +13,8 @@ Then(/^I should see "(.*?)" within the squeeks feed$/) do |text|
   within(".squeeks") do
     page.should have_content(text)
   end
+end
+
+Given(/^I have (\d+) squeek$/) do |num|
+  step %{that user has #{num} squeeks}
 end

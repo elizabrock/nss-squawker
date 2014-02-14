@@ -1,0 +1,20 @@
+= "@#{@user.username}'s profile"
+
+= image_tag @user.gravatar_url
+
+%ul.squeeks
+  - @user.squeeks.each do |squeek|
+    = render squeek
+
+- unless @user == current_user
+  - if user_signed_in?
+    - if @user.consuming?(current_user)
+      %p You are friends!
+    - else
+      %div#add_friend_form
+        = form_for(current_user.relationships.build(broadcaster_id: @user.id)) do |f|
+          %div
+            = f.hidden_field :broadcaster_id
+          %button
+            = f.submit "Add Friend"
+
