@@ -1,7 +1,6 @@
 !!!
 %html
   %head
-    / %meta name="viewport" content="width=device-width, initial-scale=1.0" /
     %title Squawker
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -31,9 +30,13 @@
   .row
     .small-1.columns
       =image_tag "tucan.png", id: 'tucan'
-  .row
-    .small-offset-1.small-11.columns
-      = flash.notice
-      = flash.alert
+    .row
+      .small-offset-1.small-6.columns
+        -if flash.notice
+          .alert-box.success.radius
+            = flash.notice
+        -if flash.alert
+          .alert-box.warning.radius
+            = flash.alert
   = yield
 
