@@ -7,7 +7,6 @@ SQUEEK!
 
 %ul.squeeks
   - @squeeks.each do |squeek|
-    %li
-      = "@#{squeek.user.username}: #{squeek.body}"
-      .image
-        =image_tag squeek.image_url(:thumb).to_s
+    = render squeek
+
+= paginate @squeeks

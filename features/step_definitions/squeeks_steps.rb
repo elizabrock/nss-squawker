@@ -15,6 +15,10 @@ Then(/^I should see "(.*?)" within the squeeks feed$/) do |text|
   end
 end
 
+Given(/^I have (\d+) squeek$/) do |num|
+  step %{that user has #{num} squeeks}
+end
+
 Then(/^there should be an image "(.*?)" in the database$/) do |string|
   image_count = Squeek.where(image: string).count
   image_count.should == 1

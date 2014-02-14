@@ -21,6 +21,6 @@ class SqueeksController < ApplicationController
   private
 
   def load_squeeks
-    @squeeks = Squeek.all
+    @squeeks = Squeek.page params[:page]
   end
 end
