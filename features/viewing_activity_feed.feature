@@ -1,5 +1,5 @@
 Feature: Viewing activity feed
-  In for the application to be intuitive
+  In order for the application to be intuitive
   As a visitor
   I want to see the activity feed right away
 

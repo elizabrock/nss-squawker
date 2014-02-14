@@ -4,14 +4,19 @@ source 'https://rubygems.org'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'gravtastic'
 gem 'haml-rails'
+gem 'honeybadger'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'pg'
+gem 'postmark-rails'
 gem 'rails', '4.0.2'
+gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'kaminari'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -29,4 +34,5 @@ end
 group :test do
   gem 'email_spec'
   gem 'launchy'
+  gem "codeclimate-test-reporter", require: nil
 end

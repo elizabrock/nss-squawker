@@ -1,0 +1,7 @@
+= "@#{@user.username}'s profile"
+
+= image_tag @user.gravatar_url
+
+%ul.squeeks
+  - @user.squeeks.each do |squeek|
+    = render squeek
