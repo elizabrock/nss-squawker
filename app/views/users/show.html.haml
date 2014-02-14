@@ -12,9 +12,9 @@
       %p You are friends!
     - else
       %div#add_friend_form
-      = form_for(current_user.relationships.build(broadcaster_id: @user.id)) do |f|
-        %div
-          = f.hidden_field :broadcaster_id
-        %button
-          = f.submit "Add Friend"
+        = form_for(current_user.relationships.build(broadcaster_id: @user.id)) do |f|
+          %div
+            = f.hidden_field :broadcaster_id
+          %button
+            = f.submit "Add Friend"
 

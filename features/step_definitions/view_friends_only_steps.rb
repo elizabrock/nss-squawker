@@ -1,4 +1,4 @@
-Given(/^a user named "(.*?)"$/) do |name|
+Given(/^a user named "(.*?)" is created$/) do |name|
   Fabricate(:user, username: name)
 end
 
