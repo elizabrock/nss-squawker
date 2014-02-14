@@ -12,10 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_twitter_oauth(auth)
-    p auth.info
     where(auth.slice(:provider, :uid)).first_or_create do |user|
-        p "CREATING USER FROM TWITTER"
-        p "@#{auth.info.nickname}"
         user.provider = auth.provider
         user.uid = auth.uid
         user.email = "pete@gmail.com"
