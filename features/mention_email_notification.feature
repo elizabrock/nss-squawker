@@ -9,14 +9,13 @@ Feature: @Mention sends email notification
   Scenario: User submits squeek containing an @ symbol next to a user's name
     Given the following user:
       | username | joe |
-
+      | email    | joe@example.com |
     And I'm signed in as jane
-    # Given I'm signed in as "jane"
     When I go to the homepage
     And I fill in "Squeek here" with "I can't stand @joe"
     And I press "Squawk"
     Then I should see: "Your squeek has been posted"
-    And there should be a squeek "I can't stand <a href='http://localhost:3000/users/4'>@joe</a>" in the database
+    And there should be a squeek "I can't stand @joe" that links to the mentioned user's profile in the database
     And I should see "@jane: I can't stand @joe" within the squeeks feed
     When I click "@joe"
     Then I should be on joe's profile page
