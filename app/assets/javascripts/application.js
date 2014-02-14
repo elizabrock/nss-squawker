@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-ui-1.10.4.custom.min.js
+//= require jquery.overlay.js
+//= require jquery.textcomplete.js
 //= require_tree .

@@ -99,7 +99,7 @@
 
     html = {
       wrapper: '<div class="textcomplete-wrapper"></div>',
-      list: '<ul class="dropdown-menu"></ul>'
+      list: '<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all"></ul>'
     };
     css = {
       wrapper: {
@@ -326,7 +326,7 @@
         $span = $('<span></span>').text('.').appendTo($div);
         this.$el.before($div);
         position = $span.position();
-        position.top += $span.height() - this.$el.scrollTop();
+        position.top += $span.height() - this.$el.scrollTop() + 8;
         if (dir === 'rtl') { position.left -= this.listView.$el.width(); }
         $div.remove();
         return position;
@@ -408,7 +408,7 @@
           if (include(this.data, val)) continue;
           index = this.data.length;
           this.data.push(val);
-          html += '<li class="textcomplete-item" data-index="' + index + '"><a>';
+          html += '<li class="textcomplete-item ui-menu-item" data-index="' + index + '"><a>';
           html +=   this.strategy.template(val);
           html += '</a></li>';
           if (this.data.length === this.strategy.maxCount) break;
