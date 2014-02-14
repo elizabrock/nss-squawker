@@ -31,7 +31,6 @@ background-color:rgb(255,0,255);
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- //= require foundation_and_overrides
  *= require foundation_and_overrides
 application.scss
  *= require_tree .
