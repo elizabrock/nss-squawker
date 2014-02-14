@@ -7,6 +7,7 @@ Squawker::Application.routes.draw do
   root 'squeeks#index'
   resources :squeeks, only: [:index, :create]
   resources :users, only: [:show]
+  resources :relationships, only: [:create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
