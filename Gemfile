@@ -16,8 +16,8 @@ gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'friendly_id'
 gem 'kaminari'
-
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
