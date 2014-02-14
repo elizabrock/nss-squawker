@@ -4,6 +4,6 @@ CarrierWave.configure do |config|
     :aws_access_key_id      => 'secret',
     :aws_secret_access_key  => 'secret',
   }
-  config.fog_directory  = 'my_uploads'
+  config.fog_directory  = 'uploads'
   config.fog_public     = false
 end
