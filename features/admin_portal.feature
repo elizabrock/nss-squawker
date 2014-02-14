@@ -43,8 +43,9 @@ Feature: Administrative Portal
     And I should see "Mary"
 
   Scenario: Admin should be able to edit Users
-    Given the squeek "Hello" by "John"
-    And the squeek "Goodbye" by "Mary"
+    Given the following user:
+      | username              | joe             |
+      | email                 | joe@example.com |
     Given an admin exists with email "admin@example.com" and password "password"
     When I go to Admin Portal
     And I fill in "admin@example.com" for "Email"
@@ -52,4 +53,13 @@ Feature: Administrative Portal
     And I press "Login"
     Then I should see "User"
     Then I click "Users"
+    Then I should see "joe"
+    Then I click "Edit"
+    Then I fill in "newemail@mail.com" for "Email"
+    And I fill in "newUser" for "Username"
+    And I press "Update User"
+    Then I should see "User was successfully updated"
+    Then I go to Users Index
+    And I should see "newemail@mail.com"
+    And I should see "newUser"
 
