@@ -6,8 +6,8 @@ When(/^I press "(.*?)" link$/) do |link|
   click_link(link)
 end
 
-When(/^I am redirected to my profile page$/) do
-	visit('/users/millerkatiej')
+When(/^I am redirected to my profile page at "(.*?)"$/) do |profileurl|
+	visit(profileurl)
 end
 
 Then(/^the URL will display as "(.*?)"$/) do |prettyurl|

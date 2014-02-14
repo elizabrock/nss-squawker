@@ -9,5 +9,5 @@ Background:
 Scenario: User "millerkatiej" visits their profile page
 	Given I am on the homepage
 	When I press "My Profile" link
-	And I am redirected to my profile page
+	And I am redirected to my profile page at "/users/millerkatiej"
 	Then the URL will display as "/users/millerkatiej" 
