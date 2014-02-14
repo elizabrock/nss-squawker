@@ -8,7 +8,7 @@ class Squeek < ActiveRecord::Base
 
   protected
     def save_mentions
-      if has_mentions
+      if mentions_set
         @mentions.each do |mention|
           mention[0] = ''
           mentioned_user = User.where(username: mention.downcase).first
@@ -21,7 +21,7 @@ class Squeek < ActiveRecord::Base
       end
     end
 
-    def has_mentions
+    def mentions_set
       reg = /(?:@\w+)/
       mentions = self.body.scan(reg).uniq
       if mentions.length > 0
