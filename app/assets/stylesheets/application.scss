@@ -2,7 +2,7 @@
 
 // image from http://wallpaperose.com/rainbow-orange-background.html
 body{
-  background: asset-url("Rainbow-Orange-Background.jpg", image)no-repeat center;
+  background: asset-url("Rainbow-Orange-Background.jpg", image)center;
   background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
