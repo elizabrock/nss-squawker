@@ -5,22 +5,22 @@ Feature: Viewing a friends-only post
 
   Background:
     Given a user named "bill"
-    And a user named "joe"
-    And a user named "sally"
-    And "bill" is friends with "joe"
-    And a friends-only squeek with content 'This is for friends only.' created by "bill"
+    Given a user named "joe"
+    Given a user named "sally"
+
+    Given "bill" is friends with "joe"
+    Given a friends-only squeek with content "This is for friends only." created by "bill"
 
   Scenario: A friend viewing the post
-    Given I am logged in as "joe"
+    Given I'm signed in as "joe"
     When I go to the homepage
     Then I should see "@bill: This is for friends only." within the squeeks feed
 
   Scenario: A user who is not a friend viewing the post
-    Given I am logged in as "sally"
+    Given I'm signed in as "sally"
     When I go to the homepage
     Then I should not see "@bill: This is for friends only." within the squeeks feed
 
-  Scenario: An anonymous user should not she the friends-only squeek
-    Given I am not currently logged in
+  Scenario: An anonymous user should not she the friends-only squeekp
     When I go to the homepage
     Then I should not see "@bill: This is for friends only." within the squeeks feed

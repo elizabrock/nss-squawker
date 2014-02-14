@@ -1,7 +1,7 @@
 Given(/^a set of (\d+) squeeks$/) do |number|
   user = Fabricate(:user, username: "username")
   number.to_i.times do |num|
-    Squeek.create!(body: "Squeek #{num + 1}", user: user)
+    Squeek.create!(body: "Squeek #{num + 1}", user: user, friends_only: false)
   end
 end
 
