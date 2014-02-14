@@ -1,1 +1,4 @@
-%li= link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}"
+%li
+  = link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}"
+  .image
+    =image_tag squeek.image_url(:thumb).to_s
