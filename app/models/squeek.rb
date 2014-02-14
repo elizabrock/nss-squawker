@@ -4,11 +4,11 @@ class Squeek < ActiveRecord::Base
 
   belongs_to :user
 
-  after_validation :save_mentions, on: :create
+  after_validation :create_mentions, on: :create
 
   protected
-    def save_mentions
-      if mentions_set
+    def create_mentions
+      if find_mentions
         @mentions.each do |mention|
           mention[0] = ''
           mentioned_user = User.where(username: mention.downcase).first
@@ -21,15 +21,9 @@ class Squeek < ActiveRecord::Base
       end
     end
 
-    def mentions_set
+    def find_mentions
       reg = /(?:@\w+)/
-      mentions = self.body.scan(reg).uniq
-      if mentions.length > 0
-        @mentions = mentions
-        true
-      else
-        false
-      end
+      @mentions = self.body.scan(reg).uniq
     end
 
     def mention_notify mentioned_user
