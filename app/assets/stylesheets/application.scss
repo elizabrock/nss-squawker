@@ -1,5 +1,5 @@
 @import "foundation";
-
+@import url(http://fonts.googleapis.com/css?family=Freckle+Face);
 
 body{
   background: asset-url("Rainbow-Orange-Background.jpg", image)no-repeat center;
@@ -10,9 +10,17 @@ body{
     background-size: cover;
 }
 
-h1{background-color:#00ff00;}
+#title{
+  font-family: 'Freckle Face', cursive;
+  color: white;
+  font-size: 3em;
+  text-shadow: 1px 1px rgb(189,0,0);
+}
 
-p{background-color:rgb(255,0,255);}
+body{font-family: 'ABeeZee', sans-serif;}
+
+.contain-to-grid
+  .top-bar{margin-bottom: 20px;}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
