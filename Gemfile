@@ -2,18 +2,18 @@ ruby '2.0.0'
 #ruby-gemset=squawker
 source 'https://rubygems.org'
 
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
+gem 'omniauth-twitter'
 gem 'pg'
 gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'omniauth-twitter'
-gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

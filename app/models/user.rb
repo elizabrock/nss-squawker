@@ -15,19 +15,8 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid
-        user.email = "pete@gmail.com"
+        user.username = "@#{auth.info.nickname}"
         user.password = Devise.friendly_token[0,20]
-        #user.name = auth.info.name   # assuming the user model has a name
-        #user.image = auth.info.image # assuming the user model has an image
     end
   end
-
-  # def self.new_with_session(params, session)
-  #   super.tap do |user|
-  #     if data = session["devise.twitter_data"] && session["devise.twitter_data"]["extra"]["raw_info"]
-  #       user.email = data["email"] if user.email.blank?
-  #     end
-  #   end
-  # end
-
 end
