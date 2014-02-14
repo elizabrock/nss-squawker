@@ -1,5 +1,6 @@
 class SqueeksController < ApplicationController
   before_filter :load_squeeks
+  autocomplete :user, :username
 
   def index
     @squeek = Squeek.new
