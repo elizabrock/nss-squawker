@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#squeek_user_username')
+  $('#squeek_body')
   .textcomplete([
     {
       match: /(^|\s)@(\w*)$/,

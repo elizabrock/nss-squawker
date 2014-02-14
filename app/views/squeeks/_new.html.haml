@@ -1,4 +1,4 @@
 = form_for @squeek do |f|
   = f.label :body, "Squeek here"
-  = f.autocomplete_field :user_username, autocomplete_user_username_squeeks_path
+  = f.autocomplete_field :body, autocomplete_user_username_squeeks_path, :autocomplete => 'off'
   = f.submit "Squawk"
