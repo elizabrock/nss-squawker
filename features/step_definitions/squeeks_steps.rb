@@ -2,6 +2,9 @@ Given(/^the squeek "(.*?)" by "(.*?)"$/) do |body, username|
   user = Fabricate(:user, username: username)
   Squeek.create!(body: body, user: user)
 end
+Given(/^I have entered my username and password correctly$/) do
+  pending # express the regexp above with the code you wish you had
+end
 
 Then(/^there should be a squeek "(.*?)" in the database$/) do |text|
   squeek_count = Squeek.where(body: text).count

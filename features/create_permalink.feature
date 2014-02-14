@@ -3,10 +3,19 @@ Feature: Permalink
   As a user
   I want see the correct URL for the page and post that I am viewing
 
-Scenario: User "millerkatiej" logins in
-  Given I have entered my username and password correctly
-  When I press "login"
-  Then I am redirected to my feed
+Background:
+  When I go to the homepage
+  And I follow "Sign Up"
+  And I fill in "millerkatiej" for "Username"
+  And I fill in "millerkatiej@gmail.com" for "Email"
+  And I fill in "password" for "user_password"
+  And I fill in "password" for "Password confirmation"
+  And I press "Sign up"
+  Then I should see "Welcome! You have signed up successfully."
+
+
+Scenario: User "millerkatiej" visits their profile page
+  Given I am on the homepage
   When I press "My Profile" link
-  Then I am redirected to my profile page
-  Then the URL will display as "http://squaker.com/users/millerkatiej"
+  And I am redirected to my profile page
+  Then the URL will display as "localhost:3000/users/millerkatiej"
