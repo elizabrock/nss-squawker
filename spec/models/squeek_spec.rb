@@ -17,3 +17,19 @@ describe Squeek do
     end
   end
 end
+
+describe 'images' do
+  include CarrierWave::Test::Matchers
+  before do
+    ImageUploader.enable_processing = true
+  end
+  it 'are resized' do
+    path = Rails.root.join *%w[ spec data cat.png ]
+    squeek = Squeek.create(body: "Cat Picture", image: path.open)
+
+    squeek.image.thumb.should be_no_larger_than(500, 500)
+  end
+  after do
+    ImageUploader.enable_processing = false
+  end
+end
