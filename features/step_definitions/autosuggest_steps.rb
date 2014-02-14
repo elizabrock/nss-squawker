@@ -1,19 +1,8 @@
-Then /^I should see "(.*?)" within the username dropdown field$/ do |arg1|
-  pending
+
+Then(/^I should see(?::)? "(.*?)" filled in "(.*?)"$/) do |text, field_name|
+  page.should have_field(field_name, with: text)
 end
 
-Then /^I should not see "(.*?)" within the username dropdown field$/ do |arg1|
-  pending
-end
-
-When(/^I type the squeek "(.*?)"$/) do |arg1|
-  pending
-end
-
-When(/^I choose "(.*?)" in the autocomplete list$/) do |arg1|
-  pending
-end
-
-Then(/^the "(.*?)" field should contain "(.*?)"$/) do |arg1, arg2|
-  pending
+Then(/^I should not see(?::)? "(.*?)" filled in "(.*?)"$/) do |text, field_name|
+  page.should_not have_field(field_name, with: text)
 end

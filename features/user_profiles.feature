@@ -34,7 +34,7 @@ Feature: User profiles
     And I should see "So, so awesome!"
     And I should not see "Susie rocks"
 
-  @wip
+
   Scenario: Editing my profile
     When I follow "My Profile"
     And I click "Edit"
