@@ -4,7 +4,9 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
     %h1= "Hi #{@user.username}!"
-    %h2= "@#{@mentioner.username} mentioned you in a squeek!"
+    %h2
+      %a{href: "http://localhost:3000/users/#{@mentioner.id}"}= "@#{@mentioner.username}"
+      %span= "mentioned you in a squeek!"
     %p
       %span The squeek was:
-      %span= @squeek.html_safe
+      %h3= sanitize(@squeek, tags: %w(a), attributes: %w(href))

@@ -16,7 +16,7 @@ Feature: @Mention sends email notification
     And I fill in "Squeek here" with "I can't stand @joe"
     And I press "Squawk"
     Then I should see: "Your squeek has been posted"
-    And there should be a squeek "I can't stand <a href='/users/4'>@joe</a>" in the database
+    And there should be a squeek "I can't stand <a href='http://localhost:3000/users/4'>@joe</a>" in the database
     And I should see "@jane: I can't stand @joe" within the squeeks feed
     When I click "@joe"
     Then I should be on joe's profile page
@@ -31,5 +31,7 @@ Feature: @Mention sends email notification
     And I press "Squawk"
     Then "joe@example.com" should have an email
     And they open the email with subject "Someone has mentioned you in a squeek!"
-    Then they should see "@jane mentioned you in a squeek!" in the email body
-    Then they should see "I can't stand <a href='/users/6'>@joe</a></span>" in the email body
+    Then they should see "@jane" in the email body
+    And they should see "mentioned you in a squeek!" in the email body
+    And they should see "I can't stand" in the email body
+    And they should see "@joe" in the email body

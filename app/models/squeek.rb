@@ -13,7 +13,7 @@ class Squeek < ActiveRecord::Base
           mention[0] = ''
           mentioned_user = User.where(username: mention.downcase).first
           if mentioned_user
-            new_string = "<a href='/users/#{mentioned_user.id}'>@#{mention}</a>"
+            new_string = "<a href='http://localhost:3000/users/#{mentioned_user.id}'>@#{mention}</a>"
             self.body = self.body.gsub("@#{mention}",new_string)
             mention_notify(mentioned_user)
           end
