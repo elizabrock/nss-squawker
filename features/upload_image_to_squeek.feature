@@ -21,4 +21,4 @@ Feature: Upload Image to Squeek
     When I fill in "Squeek here" with "Look at my cute cat!"
     And I upload a file "cat.txt"
     And I press "Squawk"
-    Then I should see: "Please choose a JPEG or PNG file"
+    Then I should see: "Please choose a JPG, JPEG or PNG file"

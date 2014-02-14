@@ -11,6 +11,7 @@ gem 'haml-rails'
 gem 'honeybadger'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'mini_magick'
 # Note: You must have Imagemagick and MiniMagick installed to do image resizing.
 # MiniMagick is a Ruby interface for Imagemagick which is a C program.
@@ -23,7 +24,6 @@ gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'kaminari'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
