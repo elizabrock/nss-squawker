@@ -1,5 +1,5 @@
 ActiveAdmin.register Squeek do
-  actions :all, except: :destroy
+  # actions :all, except: :destroy
   controller do 
     def permitted_params
       params.permit!
