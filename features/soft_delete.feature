@@ -21,6 +21,7 @@ Feature: Delete a squeek
     And I fill in "Squeek here" with "You're not my son, Lando."
     And I press "Squawk"
     And I press "Delete"
+    And I follow "Sign Out"
     When I'm signed in as "joe"
     Then I should not see "You're not my son, Lando."
 
@@ -35,9 +36,7 @@ Feature: Delete a squeek
     Then I should see "Your squeek has been posted"
     And I should see "Big pile of sticks!"
     And I should see "Orange you glad I didn't say banana?"
-    And I press "Delete" next to "Big pile of sticks!"
-    Then I should see "Delete this squeek?"
-    And I press "Yes"
+    And I press the first "Delete"
     Then I should see "Your squeek has been deleted"
     Then I should not see "Big pile of sticks!"
     And I should see "Orange you glad I didn't say banana?"
@@ -47,6 +46,7 @@ Feature: Delete a squeek
     When I go to the homepage
     And I fill in "Squeek here" with "The dog said 'Man, that's my shoe"    
     And I press "Squawk"
+    And I follow "Sign Out"
     When I'm signed in as "joe"
     Then I should see "The dog said 'Man, that's my shoe"
     And I should not see "Delete"
