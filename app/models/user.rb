@@ -22,10 +22,10 @@ class User < ActiveRecord::Base
   end
 
   def consume!(broadcaster)
-    relationships.create!(broadcaster_id: broadcaster.id])
+    relationships.create!(broadcaster_id: broadcaster.id)
   end
 
   def unconsume(broadcaster)
-    relationships.find_by(broadcaster_id: broadcaster.id)
+    relationships.find_by(broadcaster_id: broadcaster.id).destroy
   end
 end
