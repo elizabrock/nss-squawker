@@ -6,7 +6,7 @@ Feature: Administrative Portal
   Background: 
     Given an admin exists with email "admin@example.com" and password "password"
     Given the squeek "Hello" by "mary"
-    When I go to Admin Portal
+    When I go to the Admin Portal
     And I fill in "admin@example.com" for "Email"
     And I fill in "password" for "Password"
     And I press "Login"
@@ -34,7 +34,6 @@ Feature: Administrative Portal
     And I fill in "newUser" for "Username"
     And I press "Update User"
     Then I should see "User was successfully updated"
-    Then I go to admin section for "users"
+    Then I go to the admin section for "users"
     And I should see "newemail@mail.com"
     And I should see "newUser"
-

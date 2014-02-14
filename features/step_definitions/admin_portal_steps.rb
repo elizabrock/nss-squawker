@@ -1,3 +1,3 @@
-Then(/^I go to admin section for "(.*?)"$/) do |section|
+Then(/^I go to the admin section for "(.*?)"$/) do |section|
   visit "/admin/#{section}"
 end
