@@ -7,7 +7,11 @@ SQUEEK!
 
 
 %ul.squeeks
-  - @squeeks.each do |squeek|
-    = render squeek
+- @squeeks.each do |squeek|
+  - if squeek.friends_only and squeek.user != current_user
+    - if squeek.user.consumers.include? current_user
+      = render squeek
+  - else
+    =render squeek
 
 = paginate @squeeks

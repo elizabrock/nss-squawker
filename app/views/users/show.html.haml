@@ -6,9 +6,9 @@
   - @user.squeeks.each do |squeek|
     = render squeek
 
-= unless @user == current_user
-  = if user_signed_in?
-    - if current_user.consuming?(@user)
+- unless @user == current_user
+  - if user_signed_in?
+    - if @user.consuming?(current_user)
       %p You are friends!
     - else
       %div#add_friend_form
