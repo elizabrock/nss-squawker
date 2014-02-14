@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'friendly_id'
 gem 'gravtastic'
 gem 'haml-rails'
 gem 'honeybadger'
@@ -17,7 +18,6 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'kaminari'
-gem 'friendly_id'
 
 
 group :doc do
