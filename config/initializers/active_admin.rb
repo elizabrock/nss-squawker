@@ -6,7 +6,6 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = "Squawker"
-  config.allow_comments = false
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -125,7 +124,7 @@ ActiveAdmin.setup do |config|
   #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
-
+  config.allow_comments = false
 
   # == Batch Actions
   #

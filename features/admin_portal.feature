@@ -3,6 +3,8 @@ Feature: Administrative Portal
   I want the admin panel to list all squawks and users
   so I can moderate squawker
 
+  Background: 
+
   Scenario: Dashboard should have Squeek index
     Given the squeek "Hello" by "John"
     And the squeek "Goodbye" by "Mary"
