@@ -1,0 +1,20 @@
+.row
+  .small-offset-3.small-9.columns
+    %h2.subheader Change your password
+  = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+    = devise_error_messages!
+    = f.hidden_field :reset_password_token
+    .inputs
+      .row
+        .small-offset-3.small-6.columns
+          = f.input :password, label: "New password", :autofocus => true
+      .row
+        .small-offset-3.small-6.columns
+          = f.input :password_confirmation, label: "Confirm new password"
+    .actions
+      .row
+        .small-offset-3.small-6.columns
+          = f.button :submit, "Change my password"
+.row
+  .small-offset-3
+    = render "devise/shared/links"

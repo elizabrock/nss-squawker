@@ -1,0 +1,12 @@
+
+.row
+  .small-12.columns
+    %h2.subheader
+    = "@#{@user.username}'s profile"
+
+    = image_tag @user.gravatar_url
+.row
+  .small-12.columns
+    %ul.squeeks
+      - @user.squeeks.each do |squeek|
+        = render squeek
