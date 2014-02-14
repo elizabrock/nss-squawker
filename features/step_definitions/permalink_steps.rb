@@ -2,15 +2,26 @@ Given(/^I am on the homepage$/) do
   visit root_path
 end
 
-When(/^I press "(.*?)" link$/) do |arg1|
-  click_link('My Profile')
+When(/^I press "(.*?)" link$/) do |link|
+  click_link(link)
 end
 
 When(/^I am redirected to my profile page$/) do
 	visit('/users/millerkatiej')
 end
 
-Then(/^the URL will display as "(.*?)"$/) do |arg1|
-page.has_xpath?('/users/millerkatiej')
+Then(/^the URL will display as "(.*?)"$/) do |prettyurl|
+page.has_xpath?(prettyurl)
 end
 
+Given(/^a user named "(.*?)" signs up$/) do |name|
+  steps %Q{
+  		When I go to the homepage
+  	  And I follow "Sign Up"
+  	  And I fill in "#{name}" for "Username"
+  	  And I fill in "millerkatiej@gmail.com" for "Email"
+  	  And I fill in "password" for "user_password"
+  	  And I fill in "password" for "Password confirmation"
+  	  And I press "Sign up"
+  }
+end
