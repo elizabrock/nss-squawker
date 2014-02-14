@@ -8,7 +8,6 @@ class SqueeksController < ApplicationController
   def create
     squeek_params = params.require(:squeek).permit(:body, :image)
     @squeek = current_user.squeeks.new(squeek_params)
-    puts @squeek.image
     if @squeek.save
       flash[:notice] = "Your squeek has been posted"
       redirect_to squeeks_path
