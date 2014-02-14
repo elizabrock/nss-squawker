@@ -1,7 +1,7 @@
 ruby '2.0.0'
 #ruby-gemset=squawker
 source 'https://rubygems.org'
-
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'gravtastic'
