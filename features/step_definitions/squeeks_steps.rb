@@ -23,7 +23,3 @@ end
 Then(/^I should see the image "(.*?)" within the squeeks feed$/) do |image|
   page.should have_xpath("//img[contains(@src, 'cat.png')]")
 end
-
-Then(/^image should have a width "(.*?)"$/) do |width|
-  pending # express the regexp above with the code you wish you had
-end
