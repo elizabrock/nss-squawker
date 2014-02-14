@@ -99,7 +99,7 @@
 
     html = {
       wrapper: '<div class="textcomplete-wrapper"></div>',
-      list: '<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all"></ul>'
+      list: '<ul class="dropdown-menu ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all"></ul>'
     };
     css = {
       wrapper: {
