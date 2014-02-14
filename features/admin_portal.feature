@@ -27,5 +27,29 @@ Feature: Administrative Portal
     Then I should see "Squeeks"
     Then I click "Squeeks"
     Then I click "Delete"
-    Then there should be no squeeks in the database
+    Then I should see 0 squeeks in the database
+
+  Scenario: Admin should have User Index
+    Given the squeek "Hello" by "John"
+    And the squeek "Goodbye" by "Mary"
+    Given an admin exists with email "admin@example.com" and password "password"
+    When I go to Admin Portal
+    And I fill in "admin@example.com" for "Email"
+    And I fill in "password" for "Password"
+    And I press "Login"
+    Then I should see "User"
+    Then I click "Users"
+    Then I should see "John"
+    And I should see "Mary"
+
+  Scenario: Admin should be able to edit Users
+    Given the squeek "Hello" by "John"
+    And the squeek "Goodbye" by "Mary"
+    Given an admin exists with email "admin@example.com" and password "password"
+    When I go to Admin Portal
+    And I fill in "admin@example.com" for "Email"
+    And I fill in "password" for "Password"
+    And I press "Login"
+    Then I should see "User"
+    Then I click "Users"
 
