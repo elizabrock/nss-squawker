@@ -34,7 +34,7 @@ Feature: Administrative Portal
     And I fill in "newUser" for "Username"
     And I press "Update User"
     Then I should see "User was successfully updated"
-    Then I go to Users Index
+    Then I go to admin section for "users"
     And I should see "newemail@mail.com"
     And I should see "newUser"
 
