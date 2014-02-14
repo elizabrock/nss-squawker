@@ -1,10 +1,18 @@
-Given(/^a user with username "(.*?)"$/) do |username|
+Given(/^a user with username "(.*?)" exists$/) do |username|
   user = Fabricate(:user, username: username)
 end
 
-Given(/^the squeek with an IP address in Nashville, TN, "(.*?)"$/) do |ip|
-  user = Fabricate(:user, username: "@SampleUser")
-  Squeek.create!(body: "This is some sample text.", user: user, ip_address: ip)
+Given(/^the squeek with an IP address "(.*?)"$/) do |ip|
+  user = User.first
+  # we don't pass ip_address because ip_address is obtained from rails internally
+  # request.remote_ip
+
+  # ** magic here to simulate whatever request.remote_ip = ip
+  # then create squeak (which will generate it's own location field)
+  ###
+  ENV['RAILS_TEST_ADDRESS'] = ip
+  ###
+  Squeek.create!(body: "This is some sample text.", user: user)
 end
 
 Then(/^the squeek should be labeled "(.*?)"$/) do |city|
@@ -12,18 +20,6 @@ Then(/^the squeek should be labeled "(.*?)"$/) do |city|
     page.should have_content(city)
 end
 
-Then(/^the squeek model's location field should be "(.*?)"$/) do |arg1|
-  Squeek.where(body: "This is some sample text.").location.should == arg1
-end
-
-Given(/^the squeek with an IP address in Knoxville, TN, "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^the squeek's model's location field should be "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^the geocoding feature is unable to find a location from an IP address$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^the squeek model's location field should be "(.*?)"$/) do |location_string|
+  Squeek.first.location.should == location_string
 end

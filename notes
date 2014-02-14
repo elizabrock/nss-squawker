@@ -1,0 +1,20 @@
+  When /^the request ip address is "([^\"]*)"$/ do |ip_address|
+    ENV['RAILS_TEST_IP_ADDRESS'] = ip_address
+  end
+application_controller.rb:
+
+  #before every method, run method mock_ip_address
+  before_filter :mock_ip_address
+
+  def mock_ip_address
+    if Rails.env == 'cucumber' || Rails.env == 'test'
+      test_ip = ENV['RAILS_TEST_IP_ADDRESS'] # this variable ties it to step definitions
+      unless test_ip.nil? or test_ip.empty?
+        request.instance_eval <<-EOS
+          def remote_ip
+            "#{test_ip}"
+          end
+        EOS
+      end
+    end
+  end
