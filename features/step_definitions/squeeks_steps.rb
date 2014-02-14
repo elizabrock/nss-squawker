@@ -18,3 +18,11 @@ end
 Given(/^I have (\d+) squeek$/) do |num|
   step %{that user has #{num} squeeks}
 end
+
+Then(/^the squeek should be hidden$/) do
+  Squeek.last.hidden.should == true
+end
+
+Then(/^the squeek should not be hidden$/) do
+  Squeek.first.hidden.should == false
+end
