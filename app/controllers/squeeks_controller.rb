@@ -6,7 +6,7 @@ class SqueeksController < ApplicationController
   end
 
   def create
-    squeek_params = params.require(:squeek).permit(:body)
+    squeek_params = params.require(:squeek).permit(:body, :hidden)
     @squeek = current_user.squeeks.new(squeek_params)
     if @squeek.save
       flash[:notice] = "Your squeek has been posted"
@@ -15,6 +15,13 @@ class SqueeksController < ApplicationController
       flash[:alert] = "Your squeek couldn't be posted. #{@squeek.errors.full_messages.join(" ")}"
       render :index
     end
+  end
+
+  def destroy
+    squeek = Squeek.find(params[:id])
+    squeek.destroy
+    flash[:alert] = "Your squeek has been deleted"
+    redirect_to :back
   end
 
   private

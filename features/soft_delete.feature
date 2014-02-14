@@ -10,18 +10,17 @@ Feature: Delete a squeek
     And I press "Squawk"
     Then I should see "Your squeek has been posted"
     And I should see "Big pile of sticks!"
-    And I click "Delete"
-    Then I should see "Delete this squeek?"
-    And I click "Yes"
+    And the squeek should not be hidden
+    And I press "Delete"
     Then I should see "Your squeek has been deleted"
     Then I should not see "Big pile of sticks!"
 
-  Scenario: Deleting unwanted squeek from everyone else's feed
+  Scenario: Deleting unwanted squeek also removies it from everyone else's feed
     Given I'm signed in as "jane"
     When I go to the homepage
     And I fill in "Squeek here" with "You're not my son, Lando."
     And I press "Squawk"
-    And I click "Delete"
+    And I press "Delete"
     When I'm signed in as "joe"
     Then I should not see "You're not my son, Lando."
 
@@ -36,9 +35,9 @@ Feature: Delete a squeek
     Then I should see "Your squeek has been posted"
     And I should see "Big pile of sticks!"
     And I should see "Orange you glad I didn't say banana?"
-    And I click "Delete" next to "Big pile of sticks!"
+    And I press "Delete" next to "Big pile of sticks!"
     Then I should see "Delete this squeek?"
-    And I click "Yes"
+    And I press "Yes"
     Then I should see "Your squeek has been deleted"
     Then I should not see "Big pile of sticks!"
     And I should see "Orange you glad I didn't say banana?"
@@ -51,4 +50,3 @@ Feature: Delete a squeek
     When I'm signed in as "joe"
     Then I should see "The dog said 'Man, that's my shoe"
     And I should not see "Delete"
- 
