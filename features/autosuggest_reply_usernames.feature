@@ -22,3 +22,12 @@ Feature: Automatically suggesting usernames
     When I type the squeek "@nimo"
     Then I should see "@TheRealNimoy" within the username dropdown field
     And I should not see "@CanadianImage" within the username dropdown field
+
+  Scenario: User selects @someone
+    When I fill in "Squeek here" with "@sa"
+    Then I should see "@Sally" within the username dropdown field
+    And I should see "@Sarah" within the username dropdown field
+    When I choose "@Sally" in the autocomplete list
+    Then the "Squeek here" field should contain "@Sally"
+
+
