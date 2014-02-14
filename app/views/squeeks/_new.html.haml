@@ -1,4 +1,6 @@
 = form_for @squeek do |f|
   = f.label :body, "Squeek here"
   = f.text_field :body
+  = f.check_box :friends_only, {checked: false}
+  = f.label :friends_only, "Friends Only?"
   = f.submit "Squawk"
