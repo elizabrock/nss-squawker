@@ -1,6 +1,35 @@
 //
 // FOUNDATION SETTINGS
 //
+@import "foundation";
+
+// image from http://wallpaperose.com/rainbow-orange-background.html
+body{
+  background: asset-url("Rainbow-Orange-Background.jpg", image)center;
+  background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+// image from http://pixabay.com/en/tucan-bird-parrot-colorful-beak-155252/
+#tucan{
+  display: inline;
+  position:absolute;
+  right: 100px;
+}
+
+#title{
+  font-family: 'Freckle Face', cursive;
+  color: white;
+  font-size: 3em;
+  text-shadow: 1px 1px rgb(189,0,0);
+}
+
+body{font-family: 'ABeeZee', sans-serif;}
+
+.contain-to-grid .top-bar{margin-bottom: 20px;}
 
 // This is the default html and body font-size for the base rem value.
 // $rem-base: 16px;
