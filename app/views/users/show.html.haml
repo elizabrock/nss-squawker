@@ -1,9 +1,9 @@
-
 .row
   .small-12.columns
-    = "@#{@user.username}'s profile"
-
     = image_tag @user.gravatar_url
+    = "@#{@user.username}'s profile"
+    %p= @user.tagline
+    = link_to "Edit", edit_user_registration_path
 .row
   .small-12.columns
     %ul.squeeks
