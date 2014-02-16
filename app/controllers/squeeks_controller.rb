@@ -1,6 +1,5 @@
 class SqueeksController < ApplicationController
   before_filter :load_squeeks
-  before_filter :get_location, :only => [:create]
 
   def index
     @squeek = Squeek.new
@@ -8,8 +7,8 @@ class SqueeksController < ApplicationController
 
   def create
     squeek_params = params.require(:squeek).permit(:body)
-    squeek_params.merge!(:location => @city_state_string)
     @squeek = current_user.squeeks.new(squeek_params)
+    @squeek.location = get_location
     if @squeek.save
       flash[:notice] = "Your squeek has been posted"
       redirect_to squeeks_path
@@ -19,17 +18,18 @@ class SqueeksController < ApplicationController
     end
   end
 
+  private
+
   def get_location
     ip_address = request.remote_ip
     result = Geocoder.search(ip_address)[0]
     if result.present? and !result.city.blank?
-      @city_state_string = [result.city, result.state].join(", ")
+      [result.city, result.state].join(", ")
     else
-      @city_state_string = "Unknown Location"
+      "Unknown Location"
     end
   end
 
-  private
 
   def load_squeeks
     @squeeks = Squeek.all
