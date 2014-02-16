@@ -1,25 +1,11 @@
-Given(/^a user with username "(.*?)" exists$/) do |username|
-  user = Fabricate(:user, username: username)
+Given(/^I am at IP address "(.*?)"$/) do |ip_address|
+  ENV['IP'] = ip_address
 end
 
-Given(/^the squeek with an IP address "(.*?)"$/) do |ip|
-  user = User.first
-  # we don't pass ip_address because ip_address is obtained from rails internally
-  # request.remote_ip
-
-  # ** magic here to simulate whatever request.remote_ip = ip
-  # then create squeak (which will generate it's own location field)
-  ###
-  ENV['RAILS_TEST_ADDRESS'] = ip
-  ###
+Given(/^I post a squeek$/) do
   visit root_path
- click_link("Sign In")
- fill_in("Email / Username", :with => user.username)
- fill_in("Password", :with => "password")
-click_button("Sign in")
-fill_in("Squeek here", :with => "This is some sample text.")
-click_button("Squawk")
-  # Squeek.create!(body: "This is some sample text.", user: user)
+  fill_in("Squeek here", :with => "This is some sample text.")
+  click_button("Squawk")
 end
 
 Then(/^the squeek should be labeled "(.*?)"$/) do |city|

@@ -21,12 +21,12 @@ class SqueeksController < ApplicationController
 
   def get_location
     ip_address = request.remote_ip
-    if Rails.env == 'cucumber' || Rails.env == 'test'
-      ip_address = ENV['RAILS_TEST_ADDRESS']
+    result = Geocoder.search(ip_address)[0]
+    if result.present? and !result.city.blank?
+      @city_state_string = [result.city, result.state].join(", ")
+    else
+      @city_state_string = "Unknown Location"
     end
-    result = Geocoder.search(ip_address)
-    @city_state_string = result[0].city + ", " + result[0].state
-    @city_state_string = "Unknown Location" if @city_state_string == ", "
   end
 
   private
