@@ -26,8 +26,7 @@ class Squeek < ActiveRecord::Base
       mentions = self.body.scan(reg).uniq
       mentions.each do |mention|
         mention[0] = ''
-        mentioned_user = User.find_by_username(mention.downcase)
-        @mentions << mentioned_user unless mentioned_user.nil?
+        @mentions << User.find_by_username(mention.downcase)
       end
     end
 
