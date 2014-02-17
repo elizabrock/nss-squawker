@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140215181014) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "hidden",     default: false, null: false
     t.string   "location"
   end
 

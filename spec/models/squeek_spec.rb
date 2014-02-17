@@ -17,3 +17,30 @@ describe Squeek do
     end
   end
 end
+
+describe "Squeek" do
+  context "with a user & body" do
+    it "should not be hidden" do
+      user = Fabricate(:user)
+      squeek = Squeek.create(body: "Foo", user: user)
+      squeek.hidden.should be_false
+    end
+  end
+  context "with a user & body after delete" do
+    it "should be hidden" do
+      user = Fabricate(:user)
+      squeek = Squeek.create(body: "Foo", user: user)
+      squeek.destroy
+      squeek.reload
+      squeek.hidden.should be_true
+    end
+  end
+  context "after delete" do
+    it "should not display" do
+      user = Fabricate(:user)
+      squeek = Squeek.create(body: "Foo", user: user)
+      squeek.destroy
+      Squeek.all.count.should == 0
+    end
+  end
+end

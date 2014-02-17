@@ -8,6 +8,13 @@ class Squeek < ActiveRecord::Base
 
   before_create :lookup_location
 
+  default_scope { where("hidden is false") }
+
+  def destroy
+    self.hidden = true
+    self.save
+  end
+
   private
 
   def lookup_location

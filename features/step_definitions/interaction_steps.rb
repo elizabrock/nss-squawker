@@ -27,6 +27,10 @@ When(/^I press "(.*?)"$/) do |text|
   click_button(text)
 end
 
+When(/^I press the first "(.*?)"$/) do |text|
+  first(:button, text).click
+end
+
 Then(/^I should see(?::)? "([^"]*)"$/) do |text|
   page.should have_content(text)
 end

@@ -19,6 +19,13 @@ class SqueeksController < ApplicationController
     end
   end
 
+  def destroy
+    squeek = Squeek.find(params[:id])
+    squeek.destroy
+    flash[:alert] = "Your squeek has been deleted"
+    redirect_to :back
+  end
+
   private
 
   def load_squeeks

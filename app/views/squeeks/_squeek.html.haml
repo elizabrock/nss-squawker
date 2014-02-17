@@ -1,3 +1,4 @@
 %li
-  = link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}"
+  = link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}" 
+  = button_to("Delete", squeek_path(squeek), { method: :delete, data: {id: squeek.id }} )
   %span.location= "#{squeek.location}"
