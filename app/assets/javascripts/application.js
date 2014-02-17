@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require jquery.overlay.js
 //= require jquery.textcomplete.js
 //= require_tree .
 
