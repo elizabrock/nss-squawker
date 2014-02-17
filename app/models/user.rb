@@ -1,10 +1,16 @@
 class User < ActiveRecord::Base
 
-  extend FriendlyId
-  friendly_id :username
+ # def to_param
+ #    "#{id} #{name}".parameterize
+ #  end
+
+  
 
   include Gravtastic
   has_gravatar
+  
+  include FriendlyId
+  friendly_id :username
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
