@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require jquery-ui-1.10.4.custom.min.js
 //= require_tree .
+
+// include javascript files here
+$(function(){ $(document).foundation(); });
