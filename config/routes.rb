@@ -7,7 +7,9 @@ Squawker::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'squeeks#index'
-  resources :squeeks, only: [:index, :create]
+  resources :squeeks, only: [:index, :create] do
+    get :autocomplete_user_username, :on => :collection
+  end
   resources :users, only: [:show]
 
   # Example of regular route:

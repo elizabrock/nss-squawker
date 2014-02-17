@@ -15,6 +15,7 @@ gem 'kaminari'
 gem 'pg'
 gem 'postmark-rails'
 gem 'rails', '4.0.2'
+gem 'rails3-jquery-autocomplete'
 gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
 gem 'turbolinks'
@@ -43,5 +44,6 @@ group :test do
   gem "codeclimate-test-reporter", require: nil
   gem 'email_spec'
   gem 'launchy'
+  gem 'poltergeist'
   gem 'webmock'
 end
