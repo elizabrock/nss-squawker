@@ -26,7 +26,6 @@ group :test, :development do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'letter_opener'
-  gem 'sanitize'
 end
 
 group :test do

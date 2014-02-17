@@ -1,12 +1,16 @@
-require 'sanitize'
+
 
 class Squeek < ActiveRecord::Base
+  include ActionView::Helpers::SanitizeHelper
+
   validates_presence_of :body
   validates_presence_of :user
 
+  before_validation :sanitize_body
+
   belongs_to :user
 
-  before_create :sanitize_body, :create_mentions
+  before_create :create_mentions
   after_create :mention_notify
 
   protected
@@ -39,6 +43,7 @@ class Squeek < ActiveRecord::Base
     end
 
     def sanitize_body
-      self.body = Sanitize.clean(self.body, :elements => ['a'], :attributes => {'a' => ['href']})
+      self.body = sanitize(self.body, tags: %w(a), attributes: %w(href))
     end
+
 end
