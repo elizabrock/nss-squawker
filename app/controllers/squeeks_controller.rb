@@ -11,9 +11,6 @@ class SqueeksController < ApplicationController
     if @squeek.save
       flash[:notice] = "Your squeek has been posted"
       redirect_to squeeks_path
-    elsif @squeek.errors.full_messages.join(" ").include? "You are not allowed to upload"
-      flash[:alert] = "Please choose a JPG, JPEG or PNG file"
-      redirect_to squeeks_path
     else
       flash[:alert] = "Your squeek couldn't be posted. #{@squeek.errors.full_messages.join(" ")}"
       render :index
