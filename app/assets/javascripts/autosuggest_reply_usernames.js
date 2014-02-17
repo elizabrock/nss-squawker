@@ -13,14 +13,6 @@ $(document).ready(function() {
         return '$1@' + value + ' ';
       }
     }
-  ])
-  .overlay([
-    {
-        match: /\B@\w+/g,
-        css: {
-            'background-color': '#d8dfea'
-        }
-    }
   ]);
 });
 
