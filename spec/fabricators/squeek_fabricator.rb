@@ -1,3 +1,4 @@
 Fabricator(:squeek) do
-  body "This is a squeek!"
+  body{ sequence(:body) { |i| "Squeek #{i}" } }
+  user
 end

@@ -33,13 +33,3 @@ Feature: User profiles
     And I should see "I'm awesome"
     And I should see "So, so awesome!"
     And I should not see "Susie rocks"
-
-  @wip
-  Scenario: Editing my profile
-    When I follow "My Profile"
-    And I click "Edit"
-    And I fill in "Here's to serendipity!" for "Bio"
-    And I click "Save"
-    Then I should be on my profile page
-    And I should see "Your profile has been updated"
-    And I should see "Here's to serendipity!"
