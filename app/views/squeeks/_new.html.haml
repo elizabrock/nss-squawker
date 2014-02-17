@@ -1,4 +1,8 @@
-= form_for @squeek do |f|
-  = f.label :body, "Squeek here"
-  = f.text_field :body
-  = f.submit "Squawk"
+= simple_form_for @squeek do |f|
+  .inputs
+    .row
+      .small-12.columns
+        =f.input :body, label: 'Squeek here', :autofocus => true
+    .row
+      .small-6.columns
+        =f.button :submit, 'Squawk', class: 'button tiny radius'
