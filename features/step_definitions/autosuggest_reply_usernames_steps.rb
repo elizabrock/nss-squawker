@@ -10,4 +10,6 @@ end
 
 When /^I click the text link "(.*?)"$/ do |text|
   find('a', :text => text).click
+  # click_link(link) requires an href,
+  # while this simply searches for an <a> tag by text.
 end
