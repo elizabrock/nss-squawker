@@ -2,6 +2,7 @@
 
 class Squeek < ActiveRecord::Base
   include ActionView::Helpers::SanitizeHelper
+  include Rails.application.routes.url_helpers
 
   validates_presence_of :body
   validates_presence_of :user
@@ -18,7 +19,7 @@ class Squeek < ActiveRecord::Base
       find_mentions
       unless @mentions.empty?
         @mentions.each do |mentioned_user|
-          new_string = "<a href='/users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
+          new_string = "<a href='#{user_url(mentioned_user)}'>@#{mentioned_user.username}</a>"
           self.body = self.body.gsub(/(@#{mentioned_user.username})/i,new_string)
         end
       end
