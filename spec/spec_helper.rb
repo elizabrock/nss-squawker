@@ -1,5 +1,4 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+require 'test_coverage_helper'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'

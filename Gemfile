@@ -42,6 +42,7 @@ end
 
 group :test do
   gem "codeclimate-test-reporter", require: nil
+  gem 'coveralls'
   gem 'email_spec'
   gem 'launchy'
   gem 'poltergeist'
