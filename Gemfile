@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'friendly_id'
 gem 'foundation-rails'
 gem 'geocoder'
 gem 'gravtastic'
@@ -21,6 +22,7 @@ gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
