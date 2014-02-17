@@ -3,11 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %h1= "Hi #{@user.username}!"
-    %h2
-      %a{href: "http://localhost:3000/users/#{@mentioner.id}"}= "@#{@mentioner.username}"
-      %span= "mentioned you in a squeek!"
-    %p
-      %span The squeek was:
-      / %h3= sanitize(@squeek, tags: %w(a), attributes: %w(href))
-      %h3= @squeek
+    %h1= "Hi @#{@user.username}!"
+    %h2= link_to("@#{@mentioner.username}", "http://localhost:3000/users/#{@mentioner.id}") + " mentioned you in a squeek!"
+    %p The squeek was:
+    %h3= @squeek.html_safe
