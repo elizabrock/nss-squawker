@@ -9,4 +9,5 @@
       %span= "mentioned you in a squeek!"
     %p
       %span The squeek was:
-      %h3= sanitize(@squeek, tags: %w(a), attributes: %w(href))
+      / %h3= sanitize(@squeek, tags: %w(a), attributes: %w(href))
+      %h3= @squeek

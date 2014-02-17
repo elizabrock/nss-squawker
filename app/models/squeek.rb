@@ -1,11 +1,12 @@
+require 'sanitize'
+
 class Squeek < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :user
 
   belongs_to :user
 
-  after_validation :create_mentions, on: :create
-
+  before_create :sanitize_body, :create_mentions
   after_create :mention_notify
 
   protected
@@ -36,5 +37,9 @@ class Squeek < ActiveRecord::Base
           NotificationMailer.mention_email(mentioned_user,self.user,self.body).deliver
         end
       end
+    end
+
+    def sanitize_body
+      self.body = Sanitize.clean(self.body, :elements => ['a'], :attributes => {'a' => ['href']})
     end
 end
