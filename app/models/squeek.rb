@@ -14,7 +14,7 @@ class Squeek < ActiveRecord::Base
       find_mentions
       unless @mentions.empty?
         @mentions.each do |mentioned_user|
-          new_string = "<a href='http://localhost:3000/users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
+          new_string = "<a href='/users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
           self.body = self.body.gsub(/(@#{mentioned_user.username})/i,new_string)
         end
       end
