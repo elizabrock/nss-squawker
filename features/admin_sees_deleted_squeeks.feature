@@ -8,6 +8,6 @@ Feature: Admin user can see deleted squeeks
     When I go to the homepage
     And I fill in "Squeek here" with "She dropped him off at band practice."
     And I press "Squawk"
-    And I click "Delete"
+    And I press "Delete"
     When I'm signed in as "admin"
     Then I should see "She dropped him off at band practice."
