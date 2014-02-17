@@ -4,5 +4,4 @@ class Squeek < ActiveRecord::Base
 
   belongs_to :user
 
-  attr_reader :user_username
 end
