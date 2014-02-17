@@ -1,1 +1,3 @@
-%li= link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}"
+%li
+  = link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}"
+  %span.location= "#{squeek.location}"

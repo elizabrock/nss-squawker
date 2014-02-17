@@ -1,11 +1,15 @@
 Squawker::Application.routes.draw do
-  devise_for :users
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users, :controllers => { :registrations => :registrations }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'squeeks#index'
-  resources :squeeks, only: [:index, :create]
+  resources :squeeks, only: [:index, :create] do
+    get :autocomplete_user_username, :on => :collection
+  end
   resources :users, only: [:show]
 
   # Example of regular route:
