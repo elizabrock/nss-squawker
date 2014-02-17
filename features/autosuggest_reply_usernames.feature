@@ -26,4 +26,4 @@ Feature: Automatically suggesting usernames
   Scenario: User selects someone
     When I key in "Squeek here" with "@nimoy"
     When I click the text link "TheRealNimoy"
-    Then I should see "Squeek here" filled in with "@TheRealNimoy "
+    Then "Squeek here" should be filled in with "@TheRealNimoy "

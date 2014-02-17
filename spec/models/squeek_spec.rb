@@ -16,9 +16,7 @@ describe Squeek do
       squeek.should be_valid
     end
   end
-end
 
-describe "Squeek" do
   context "with a user & body" do
     it "should not be hidden" do
       user = Fabricate(:user)
@@ -41,6 +39,22 @@ describe "Squeek" do
       squeek = Squeek.create(body: "Foo", user: user)
       squeek.destroy
       Squeek.all.count.should == 0
+    end
+  end
+
+  context 'images' do
+    include CarrierWave::Test::Matchers
+    before do
+      ImageUploader.enable_processing = true
+    end
+    it 'are resized' do
+      path = Rails.root.join *%w[ spec data cat.png ]
+      squeek = Squeek.create(body: "Cat Picture", image: path.open)
+
+      squeek.image.thumb.should be_no_larger_than(500, 500)
+    end
+    after do
+      ImageUploader.enable_processing = false
     end
   end
 end

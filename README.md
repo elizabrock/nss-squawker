@@ -8,6 +8,8 @@ This is a basic twitter clone.
 
 ## Project Setup
 
+1. Install the imagemagick
+  `brew install imagemagick` (on OS X)
 1. Create the databases:
   `rake db:create:all`
 2. Run the migrations:
