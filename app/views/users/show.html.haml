@@ -4,17 +4,21 @@
 
 %ul.squeeks
   - @user.squeeks.each do |squeek|
-    = render squeek
+    - if squeek.consumers_only and squeek.user != current_user
+      - if squeek.user.consumers.include? current_user
+        = render squeek
+    - else
+      = render squeek
 
 - unless @user == current_user
   - if user_signed_in?
     - if @user.consuming?(current_user)
-      %p You are friends!
+      = "You are broadcasting to @#{@user.username}."
     - else
-      %div#add_friend_form
+      %div#add_consumer_form
         = form_for(current_user.relationships.build(broadcaster_id: @user.id)) do |f|
           %div
             = f.hidden_field :broadcaster_id
           %button
-            = f.submit "Add Friend"
+            = f.submit "Broadcast to @#{@user.username}"
 

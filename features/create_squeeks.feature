@@ -1,4 +1,3 @@
-@focus
 Feature: Create a squeek
   In order to vent my spleen
   As an internet heathen
