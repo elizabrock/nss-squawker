@@ -2,4 +2,3 @@
   = link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}" 
   = button_to("Delete", squeek_path(squeek), { method: :delete, data: {id: squeek.id }} )
   
-  / # = button_to("Delete", controller: :squeeks, method: :delete,  data: { confirm: "Delete this squeek?" } )

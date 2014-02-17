@@ -1,4 +1,3 @@
-@WIP
 Feature: Admin user can see deleted squeeks
   As an admin
   In order to audit accounts to address complaints
