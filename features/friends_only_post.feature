@@ -1,4 +1,3 @@
-@friendsonly
 Feature: Create friends-only post
   As a user
   In order to keep certain posts private

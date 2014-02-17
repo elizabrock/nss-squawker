@@ -1,4 +1,3 @@
-@addfriend
 Feature: Add Friend
   As a user
   In order to communicate with and keep track of friends
