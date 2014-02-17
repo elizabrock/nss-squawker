@@ -5,6 +5,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'foundation-rails'
+gem 'geocoder'
 gem 'gravtastic'
 gem 'haml-rails'
 gem 'honeybadger'
@@ -33,6 +34,7 @@ group :test, :development do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'fabrication'
+  gem 'pry'
   gem 'rspec'
   gem 'rspec-rails'
 end
@@ -41,4 +43,5 @@ group :test do
   gem "codeclimate-test-reporter", require: nil
   gem 'email_spec'
   gem 'launchy'
+  gem 'webmock'
 end
