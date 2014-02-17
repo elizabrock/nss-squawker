@@ -18,6 +18,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'rails3-jquery-autocomplete'
 gem 'unicorn'
 
 group :doc do
@@ -41,4 +42,5 @@ group :test do
   gem "codeclimate-test-reporter", require: nil
   gem 'email_spec'
   gem 'launchy'
+  gem 'poltergeist'
 end
