@@ -1,4 +1,4 @@
-@wip @javascript
+@javascript
 Feature: Automatically suggesting usernames
   As a squawker
   In order to easily reference other squawkers
@@ -13,20 +13,17 @@ Feature: Automatically suggesting usernames
       | LilNemo       |
 
   Scenario: User starts typing someone
-    When I fill in "Squeek here" with "nim"
+    When I key in "Squeek here" with "@nim"
     Then I should see "TheRealNimoy"
     And I should see "CanadianImage"
     And I should not see "LilNemo"
-    Then show me the page
 
   Scenario: User continues typing someone
-    When I fill in "Squeek here" with "nimo"
+    When I key in "Squeek here" with "@nimo"
     Then I should see "TheRealNimoy"
     And I should not see "CanadianImage"
 
   Scenario: User selects someone
-    When I fill in "Squeek here" with "sa"
-    Then I should see "Sally"
-    And I should see "Sarah"
-    When I click "Sally"
-    Then I should see "@Sally" filled in "Squeek here"
+    When I key in "Squeek here" with "@nimoy"
+    When I click the text link "TheRealNimoy"
+    Then I should see "Squeek here" filled in with "@TheRealNimoy "

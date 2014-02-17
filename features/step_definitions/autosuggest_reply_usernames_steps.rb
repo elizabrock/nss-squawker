@@ -1,8 +1,13 @@
+When /^I key in "(.*?)" with "(.*?)"$/ do |field, content|
+  content.each_char do |char|
+    find_field(field).native.send_keys(char)
+  end
+end
 
-Then(/^I should see(?::)? "(.*?)" filled in "(.*?)"$/) do |text, field_name|
+Then /^I should see "(.*?)" filled in with "(.*?)"$/ do |field_name, text|
   page.should have_field(field_name, with: text)
 end
 
-Then(/^I should not see(?::)? "(.*?)" filled in "(.*?)"$/) do |text, field_name|
-  page.should_not have_field(field_name, with: text)
+When /^I click the text link "(.*?)"$/ do |text|
+  find('a', :text => text).click
 end
