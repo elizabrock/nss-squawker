@@ -6,7 +6,7 @@ class SqueeksController < ApplicationController
   end
 
   def create
-    squeek_params = params.require(:squeek).permit(:body)
+    squeek_params = params.require(:squeek).permit(:body, :consumers_only)
     @squeek = current_user.squeeks.new(squeek_params)
     if @squeek.save
       flash[:notice] = "Your squeek has been posted"
@@ -20,6 +20,6 @@ class SqueeksController < ApplicationController
   private
 
   def load_squeeks
-    @squeeks = Squeek.all
+    @squeeks = Squeek.page params[:page]
   end
 end

@@ -5,6 +5,13 @@ SQUEEK!
 - else
   %p Sign in or Sign up to post a squeek
 
+
 %ul.squeeks
   - @squeeks.each do |squeek|
-    %li= "@#{squeek.user.username}: #{squeek.body}"
+    - if squeek.consumers_only?
+      -if squeek.viewable_by? current_user
+        = render squeek
+    - else
+      = render squeek
+
+= paginate @squeeks
