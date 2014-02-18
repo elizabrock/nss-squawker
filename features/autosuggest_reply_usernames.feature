@@ -14,14 +14,12 @@ Feature: Automatically suggesting usernames
 
   Scenario: User starts typing someone
     When I key in "Squeek here" with "@nim"
-    And I wait for the request to complete
     Then I should see "TheRealNimoy"
     And I should see "CanadianImage"
     And I should not see "LilNemo"
 
   Scenario: User continues typing someone
     When I key in "Squeek here" with "@nimo"
-    And I wait for the request to complete
     Then I should see "TheRealNimoy"
     And I should not see "CanadianImage"
 
