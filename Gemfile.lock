@@ -97,7 +97,6 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.0.2)
-    fabrication (2.9.7)
     fabrication (2.9.8)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
