@@ -18,3 +18,20 @@ end
 Given(/^I have (\d+) squeek$/) do |num|
   step %{that user has #{num} squeeks}
 end
+
+Then(/^the squeek should be hidden$/) do
+  Squeek.last.hidden.should == true
+end
+
+Then(/^the squeek should not be hidden$/) do
+  Squeek.first.hidden.should == false
+end
+
+Then(/^there should be an image "(.*?)" in the database$/) do |string|
+  image_count = Squeek.where(image: string).count
+  image_count.should == 1
+end
+
+Then(/^I should see the image "(.*?)" within the squeeks feed$/) do |image|
+  page.should have_xpath("//img[contains(@src, 'cat.png')]")
+end

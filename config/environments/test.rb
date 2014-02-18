@@ -1,3 +1,5 @@
+require 'spoof_ip'
+
 Squawker::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -34,4 +36,7 @@ Squawker::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # To support GeoCoder
+  config.middleware.use('SpoofIp')
 end

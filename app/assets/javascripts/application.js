@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
-//= require_tree .
+//= require jquery.textcomplete
+//= require autosuggest_reply_usernames
+
+// include javascript files here
+$(function(){ $(document).foundation(); });

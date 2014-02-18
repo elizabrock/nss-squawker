@@ -1,10 +1,16 @@
-SQUEEK!
+.row
+  .small-9.columns
+    %h2.subheader SQUEEK!
 
 - if user_signed_in?
   = render partial: "squeeks/new"
 - else
-  %p Sign in or Sign up to post a squeek
-
-%ul.squeeks
-  - @squeeks.each do |squeek|
-    = render squeek
+  .row
+    .small-9.columns
+      %p Sign in or Sign up to post a squeek
+.row
+  .small-9.columns
+    %ul.squeeks
+      - @squeeks.each do |squeek|
+        = render squeek
+    = paginate @squeeks

@@ -1,4 +1,11 @@
-= form_for @squeek do |f|
-  = f.label :body, "Squeek here"
-  = f.text_field :body
-  = f.submit "Squawk"
+= simple_form_for @squeek, :html => {:multipart => true} do |f|
+  .inputs
+    .row
+      .small-12.columns
+        = f.input :body, label: 'Squeek here', :autofocus => true, :url => autocomplete_user_username_squeeks_path, :as => :text
+    .row
+      .small-12.columns
+        = f.input :image
+    .row
+      .small-6.columns
+        =f.button :submit, 'Squawk', class: 'button tiny radius'
