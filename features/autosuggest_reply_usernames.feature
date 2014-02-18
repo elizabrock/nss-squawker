@@ -16,11 +16,13 @@ Feature: Automatically suggesting usernames
     When I key in "Squeek here" with "@nim"
     Then I should see "TheRealNimoy"
     And I should see "CanadianImage"
+    And I wait a second to see if that helps the CI server
     And I should not see "LilNemo"
 
   Scenario: User continues typing someone
     When I key in "Squeek here" with "@nimo"
     Then I should see "TheRealNimoy"
+    And I wait a second to see if that helps the CI server
     And I should not see "CanadianImage"
 
   Scenario: User selects someone
