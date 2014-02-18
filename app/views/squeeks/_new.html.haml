@@ -1,6 +1,6 @@
 = form_for @squeek do |f|
   = f.label :body, "Squeek here"
   = f.text_field :body
-  = f.check_box :consumer_only, {checked: false, title:"If checked, this post will only be visible to the people to which you broadcast squeeks"}
-  = f.label :consumer_only, "Consumers Only?"
+  = f.check_box :consumers_only, {checked: false, title:"If checked, this post will only be visible to the people to which you broadcast squeeks"}
+  = f.label :consumers_only, "Consumers Only?"
   = f.submit "Squawk"

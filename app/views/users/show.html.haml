@@ -4,10 +4,7 @@
 
 %ul.squeeks
   - @user.squeeks.each do |squeek|
-    -if squeek.consumers_only?
-      -if squeek.viewable_by? current_user
-        = render squeek
-    - else
+    -if squeek.viewable_by? current_user
       = render squeek
 
 - unless @user == current_user

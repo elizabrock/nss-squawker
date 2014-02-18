@@ -6,6 +6,6 @@ Then(/^I should see a "(.*?)" with label "(.*?)" within the new squeek form$/) d
 end
 
 When(/^I press the checkbox within the new squeek form$/) do
-  page.check('squeek_consumer_only')
+  page.check('squeek_consumers_only')
 end
 

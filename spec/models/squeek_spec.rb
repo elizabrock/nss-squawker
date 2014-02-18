@@ -1,14 +1,6 @@
 require 'spec_helper'
 
 describe Squeek do
-  before(:each) do
-    @user1 = Fabricate(:user)
-    @user2 = Fabricate(:user)
-    @user3 = Fabricate(:user)
-    @relationship = Fabricate(:relationship, broadcaster: @user1, consumer: @user2)
-    @squeek = Squeek.new(body: "Foo", user: @user1, consumers_only: true)
-  end
-
   context "missing user" do
     it "should not be valid" do
       squeek = Squeek.new(body: "Foo")
@@ -25,6 +17,14 @@ describe Squeek do
     end
   end
   context "consumer only" do
+    before do 
+      @user1 = Fabricate(:user)
+      @user2 = Fabricate(:user)
+      @user3 = Fabricate(:user)
+      @relationship = Fabricate(:relationship, broadcaster: @user1, consumer: @user2)
+      @squeek = Squeek.new(body: "Foo", user: @user1, consumers_only: true)
+    end
+
     it "should be true if user is a consumer" do
       result = @squeek.viewable_by? @user2
       result.should be_true
@@ -37,5 +37,24 @@ describe Squeek do
       result = @squeek.viewable_by? @user1
       result.should be_true
     end
-  end  
+  end
+  context "non-consumer-only" do
+    before do
+      @user1 = Fabricate(:user)
+      @user2 = Fabricate(:user)
+      @user3 = Fabricate(:user)
+      @relationship = Fabricate(:relationship, broadcaster: @user1, consumer: @user2)
+      @squeek = Squeek.new(body: "Foo", user: @user1, consumers_only: false)
+    end
+
+    it "should be viewable by all users" do
+      result = []
+      [@user1, @user2, @user3].each do |user|
+        viewable = @squeek.viewable_by? user 
+        result << viewable
+      end
+      expected = [true, true, true]
+      (result == expected).should be_true
+    end
+  end
 end
