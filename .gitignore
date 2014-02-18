@@ -18,3 +18,6 @@ coverage/*
 
 # Ignore all files in uploads.
 /public/uploads
+
+# Ignore application configuration
+/config/application.yml

@@ -1,0 +1,15 @@
+# Example Contents of config/application.yml file
+
+#1. Go to dev.twitter.com
+#2. Login to twitter account
+#3. Go to my applications
+#4. Create new app
+#5. Fill in required fields
+#6. Create your Twitter Application
+#7. Obtain consumer key and consumer secret for your new app
+
+#twitter calls this consumer key
+TWITTER_KEY: 203dfk4jfdBDER34kdfk3
+
+#twitter calls this consumer secret
+TWITTER_SECRET: dkj36rBEY54783dfgSHHJ2289Fh8dfegb64dfss51sg

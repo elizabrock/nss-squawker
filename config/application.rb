@@ -13,7 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module Squawker
   class Application < Rails::Application
-    Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+    I18n.enforce_available_locales = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -26,5 +26,6 @@ module Squawker
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.action_mailer.default_options = { from: 'parrot@squawker.me' }
+    Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   end
 end

@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20140217045054) do
   add_index "relationships", ["broadcaster_id"], name: "index_relationships_on_broadcaster_id", using: :btree
   add_index "relationships", ["consumer_id"], name: "index_relationships_on_consumer_id", using: :btree
 
+  create_table "sessions", force: true do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
   create_table "squeeks", force: true do |t|
     t.text     "body"
     t.datetime "created_at"
@@ -72,7 +82,7 @@ ActiveRecord::Schema.define(version: 20140217045054) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -86,6 +96,8 @@ ActiveRecord::Schema.define(version: 20140217045054) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "tagline"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

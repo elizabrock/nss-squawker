@@ -3,9 +3,11 @@ ruby '2.0.0'
 source 'https://rubygems.org'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activerecord-session_store'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'figaro'
 gem 'fog'
 gem 'foundation-rails'
 gem 'geocoder'
@@ -20,6 +22,7 @@ gem 'mini_magick'
 # MiniMagick is a Ruby interface for Imagemagick which is a C program.
 # This is why MiniMagick fails on 'bundle install' without Imagemagick installed.
 # Found at: https://github.com/carrierwaveuploader/carrierwave
+gem 'omniauth-twitter'
 gem 'pg'
 gem 'postmark-rails'
 gem 'rails', '4.0.2'

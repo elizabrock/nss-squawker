@@ -14,8 +14,10 @@ This is a basic twitter clone.
   `rake db:create:all`
 2. Run the migrations:
   `rake db:migrate`
-3. Start the app:
+3. Add application.yml file to [config/](config/) folder that follows example in [config/application.yml.example](config/application.yml.example)
+4. Start the app:
   `rails s`
+
 
 ## Badges of Honor
 
