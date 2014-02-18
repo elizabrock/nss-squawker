@@ -46,6 +46,7 @@ group :test, :development do
   gem 'pry'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'letter_opener'
 end
 
 group :test do
