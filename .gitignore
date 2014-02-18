@@ -14,3 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+coverage/*
+
+# Ignore all files in uploads.
+/public/uploads

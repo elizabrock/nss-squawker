@@ -68,6 +68,9 @@ Squawker::Application.configure do
   config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_KEY'] }
   config.action_mailer.default_url_options = { :host => 'squawker.me' }
 
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'example.com' }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
@@ -80,4 +83,6 @@ Squawker::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  Rails.application.routes.default_url_options[:host] = 'example.com'
 end

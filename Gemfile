@@ -1,9 +1,12 @@
 ruby '2.0.0'
 #ruby-gemset=squawker
 source 'https://rubygems.org'
+
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'fog'
 gem 'foundation-rails'
 gem 'geocoder'
 gem 'gravtastic'
@@ -12,6 +15,11 @@ gem 'honeybadger'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'mini_magick'
+# Note: You must have Imagemagick and MiniMagick installed to do image resizing.
+# MiniMagick is a Ruby interface for Imagemagick which is a C program.
+# This is why MiniMagick fails on 'bundle install' without Imagemagick installed.
+# Found at: https://github.com/carrierwaveuploader/carrierwave
 gem 'pg'
 gem 'postmark-rails'
 gem 'rails', '4.0.2'
@@ -40,10 +48,12 @@ group :test, :development do
   gem 'pry'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'letter_opener'
 end
 
 group :test do
   gem "codeclimate-test-reporter", require: nil
+  gem 'coveralls'
   gem 'email_spec'
   gem 'launchy'
   gem 'poltergeist'

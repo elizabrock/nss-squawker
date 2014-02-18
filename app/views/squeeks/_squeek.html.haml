@@ -1,3 +1,6 @@
 %li
-  = link_to("@#{squeek.user.username}", squeek.user) + ": #{squeek.body}"
+  = link_to("@#{squeek.user.username}", squeek.user) + ": " + squeek.body.html_safe
+  = button_to("Delete", squeek_path(squeek), { method: :delete, data: {id: squeek.id }} )
   %span.location= "#{squeek.location}"
+  .image
+    =image_tag squeek.image_url(:thumb).to_s

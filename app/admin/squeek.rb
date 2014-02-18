@@ -4,6 +4,10 @@ ActiveAdmin.register Squeek do
     def permitted_params
       params.permit!
     end
+
+    def scoped_collection
+      Squeek.unscoped
+    end
   end
   
   # See permitted parameters documentation:

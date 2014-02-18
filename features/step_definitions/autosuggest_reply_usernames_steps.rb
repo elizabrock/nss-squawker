@@ -4,7 +4,7 @@ When /^I key in "(.*?)" with "(.*?)"$/ do |field, content|
   end
 end
 
-Then /^I should see "(.*?)" filled in with "(.*?)"$/ do |field_name, text|
+Then(/^"(.*?)" should be filled in with "(.*?)"$/) do |field_name, text|
   page.should have_field(field_name, with: text)
 end
 
