@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215181014) do
+ActiveRecord::Schema.define(version: 20140217045054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 20140215181014) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "relationships", force: true do |t|
+    t.integer  "broadcaster_id"
+    t.integer  "consumer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["broadcaster_id", "consumer_id"], name: "index_relationships_on_broadcaster_id_and_consumer_id", unique: true, using: :btree
+  add_index "relationships", ["broadcaster_id"], name: "index_relationships_on_broadcaster_id", using: :btree
+  add_index "relationships", ["consumer_id"], name: "index_relationships_on_consumer_id", using: :btree
+
   create_table "squeeks", force: true do |t|
     t.text     "body"
     t.datetime "created_at"
@@ -56,7 +67,8 @@ ActiveRecord::Schema.define(version: 20140215181014) do
     t.integer  "user_id"
     t.string   "image"
     t.string   "location"
-    t.boolean  "hidden",     default: false, null: false
+    t.boolean  "hidden",         default: false, null: false
+    t.boolean  "consumers_only"
   end
 
   create_table "users", force: true do |t|

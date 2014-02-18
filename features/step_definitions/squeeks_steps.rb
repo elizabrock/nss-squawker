@@ -1,6 +1,6 @@
 Given(/^the squeek "(.*?)" by "(.*?)"$/) do |body, username|
   user = Fabricate(:user, username: username)
-  Squeek.create!(body: body, user: user)
+  Squeek.create!(body: body, user: user, consumers_only: false)
 end
 
 Then(/^there should be a squeek "(.*?)" in the database$/) do |text|

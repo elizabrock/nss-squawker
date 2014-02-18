@@ -12,5 +12,6 @@
   .small-9.columns
     %ul.squeeks
       - @squeeks.each do |squeek|
-        = render squeek
+        - if squeek.viewable_by? current_user
+          = render squeek
     = paginate @squeeks

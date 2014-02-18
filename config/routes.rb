@@ -11,6 +11,7 @@ Squawker::Application.routes.draw do
     get :autocomplete_user_username, :on => :collection
   end
   resources :users, only: [:show]
+  resources :relationships, only: [:create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -8,4 +8,16 @@
   .small-12.columns
     %ul.squeeks
       - @user.squeeks.each do |squeek|
-        = render squeek
+        -if squeek.viewable_by? current_user
+          = render squeek
+
+- if current_user and @user != current_user
+  - if @user.consuming?(current_user)
+    = "You are broadcasting to @#{@user.username}."
+  - else
+    %div#add_consumer_form
+      = form_for(current_user.relationships.build(broadcaster_id: @user.id)) do |f|
+        %div
+          = f.hidden_field :broadcaster_id
+        %button
+          = f.submit "Broadcast to @#{@user.username}"

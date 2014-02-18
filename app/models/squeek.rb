@@ -9,6 +9,7 @@ class Squeek < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   belongs_to :user
+  belongs_to :user, :inverse_of => :squeeks
 
   before_validation :sanitize_body
 
@@ -21,6 +22,12 @@ class Squeek < ActiveRecord::Base
     self.hidden = true
     self.save
   end
+
+  def viewable_by? current_user
+    return true unless self.consumers_only?
+    self.user.consumers.include? current_user or self.user == current_user
+  end
+
 
   private
     def lookup_location
