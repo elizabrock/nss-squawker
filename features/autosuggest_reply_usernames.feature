@@ -1,3 +1,4 @@
+@wip
 @javascript
 Feature: Automatically suggesting usernames
   As a squawker
