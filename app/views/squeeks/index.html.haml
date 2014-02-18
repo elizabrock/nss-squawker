@@ -8,8 +8,8 @@ SQUEEK!
 
 %ul.squeeks
   - @squeeks.each do |squeek|
-    - if squeek.consumers_only and squeek.user != current_user
-      - if squeek.user.consumers.include? current_user
+    - if squeek.consumers_only?
+      -if squeek.viewable_by? current_user
         = render squeek
     - else
       = render squeek

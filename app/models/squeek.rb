@@ -4,4 +4,9 @@ class Squeek < ActiveRecord::Base
 
   belongs_to :user, :inverse_of => :squeeks
 
+  def viewable_by? current_user
+    result = false
+    result = true if self.user.consumers.include? current_user or self.user == current_user
+  end
+
 end

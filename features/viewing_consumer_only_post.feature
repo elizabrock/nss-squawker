@@ -25,14 +25,14 @@ Feature: Viewing a consumer-only post
   Scenario: A consumer viewing the post on bill's user page
     Given I'm signed in as "joe"
     And "bill" is broadcasting to "joe"
-    When I go to the user page of "bill"
+    When I go to bill's profile page
     Then I should see "@bill: This is for consumer only." within the squeeks feed
 
   Scenario: A user who is not a consumer viewing the post
     Given I'm signed in as "sally"
-    When I go to the user page of "bill"
+    When I go to bill's profile page
     Then I should not see "@bill: This is for consumer only." within the squeeks feed
 
   Scenario: An anonymous user should not see the consumer-only squeek
-    When I go to the user page of "bill"
+    When I go to bill's profile page
     Then I should not see "@bill: This is for consumer only." within the squeeks feed

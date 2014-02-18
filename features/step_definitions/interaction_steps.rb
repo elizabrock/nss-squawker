@@ -14,9 +14,14 @@ Then(/^I should be on my profile page$/) do
   current_path.should == user_path(@user)
 end
 
-Then(/^I should be on jane's profile page$/) do
-  user = User.where(username: "jane").first
+Then(/^I should be on (.*?)'s profile page$/) do |name|
+  user = User.where(username: name ).first
   current_path.should == user_path(user)
+end
+
+When(/^I go to (.*?)'s profile page$/) do |name|
+  user = User.where(username: name ).first
+  visit user_path(user)
 end
 
 When(/^I (?:click|follow) "(.*?)"$/) do |link|
