@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :username
+  # validates_uniqueness_of :user_name
 
   include Gravtastic
   has_gravatar
