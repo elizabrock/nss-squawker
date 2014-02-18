@@ -15,6 +15,8 @@ This is a basic twitter clone.
 3. Start the app:
   `rails s`
 
+(If you would like to see an example of the [config/application.yml](/config/application.yml), check out [config/application.yml.example](/config/application.yml.example))
+
 ## Badges of Honor
 
 [![Build Status](https://travis-ci.org/elizabrock/nss-squawker.png)](https://travis-ci.org/elizabrock/nss-squawker)
