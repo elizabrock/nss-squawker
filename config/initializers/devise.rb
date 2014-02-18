@@ -5,7 +5,7 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = '053b0bc5cf3c05ce8c0d2a54b29fe8760c01a8fdca9e3de41cb091a28b845919bf9d1df947eff4073e469a8e326b73aa06831275a6976fe6efc541dbe4c371d4'
-  config.omniauth :twitter, Figaro.env.twitter_key, Figaro.env.twitter_secret
+  config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"]
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
