@@ -4,3 +4,4 @@
   %span.location= "#{squeek.location}"
   .image
     =image_tag squeek.image_url(:thumb).to_s
+  = link_to "Favorite this squeek", squeek_favorite_path(squeek), method: :post

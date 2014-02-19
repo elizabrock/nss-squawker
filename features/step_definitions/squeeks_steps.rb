@@ -10,8 +10,14 @@ Then(/^there should be a squeek "(.*?)" in the database$/) do |text|
 end
 
 Then(/^I should see "(.*?)" within the squeeks feed$/) do |text|
-  within(".squeeks") do
+  within(".squeeks.squawked") do
     page.should have_content(text)
+  end
+end
+
+Then(/^I should not see "(.*?)" within the squeeks feed$/) do |text|
+  within(".squeeks.squawked") do
+    page.should_not have_content(text)
   end
 end
 

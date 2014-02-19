@@ -6,8 +6,16 @@
     = link_to "Edit", edit_user_registration_path
 .row
   .small-12.columns
-    %ul.squeeks
+    %h2 Squawked
+    %ul.squeeks.squawked
       - @user.squeeks.each do |squeek|
+        -if squeek.viewable_by? current_user
+          = render squeek
+.row
+  .small-12.columns
+    %h2 Favorited
+    %ul.squeeks.favorites
+      - @user.favorite_squeeks.each do |squeek|
         -if squeek.viewable_by? current_user
           = render squeek
 

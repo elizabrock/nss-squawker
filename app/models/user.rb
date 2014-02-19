@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: "broadcaster_id", class_name: "Relationship"
   has_many :broadcasters, through: :relationships, source: :broadcaster
   has_many :consumers, through: :reverse_relationships, source: :consumer
+  has_many :favorites
+  has_many :favorite_squeeks, through: :favorites, source: :squeek
+
+  validates_uniqueness_of :username
+  validates_presence_of :username
 
   def self.find_for_database_authentication(conditions)
     self.where(:username => conditions[:email]).first || self.where(:email => conditions[:email]).first
