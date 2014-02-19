@@ -7,3 +7,4 @@ Scenario: User "arielle919" visits their profile page
   Given a user named "arielle919" signs up
   When I press "My Profile" link
   Then the URL will display as "/users/arielle919"
+  And the
