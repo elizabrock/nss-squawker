@@ -17,5 +17,4 @@
 //= require jquery.textcomplete
 //= require autosuggest_reply_usernames
 
-// include javascript files here
 $(function(){ $(document).foundation(); });
