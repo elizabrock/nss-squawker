@@ -11,7 +11,6 @@ Feature: Upload Image to Squeek
     And I upload a file "cat.png"
     And I press "Squawk"
     Then I should see: "Your squeek has been posted"
-    And there should be an image "cat.png" in the database
     And I should see the image "cat.png" within the squeeks feed
 
   Scenario: Uploading a file without .jpeg or .png extensions fails

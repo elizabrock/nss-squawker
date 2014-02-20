@@ -6,4 +6,4 @@ Feature: Permalink
 Scenario: User "arielle919" visits their profile page
   Given I have signed up as "arielle919"
   When I click "My Profile"
-  Then the URL will display as "/users/arielle919"
+  Then I should be on /users/arielle919

@@ -4,8 +4,10 @@ Feature: Viewing a consumer-only post
   And I don't want to see consumer-only posts from users who are not my consumer
 
   Background:
-    Given a user named "bill" is created
-    Given a consumer-only squeek with content "This is for consumer only." created by "bill"
+    Given the following user:
+      | username | bill |
+    And that user has the following consumer only squeek:
+      | body | This is for consumer only. |
 
   Scenario: A consumer viewing the post
     Given I'm signed in as "joe"

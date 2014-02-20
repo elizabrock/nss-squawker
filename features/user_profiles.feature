@@ -7,8 +7,10 @@ Feature: User profiles
     Given the following user:
       | username | jane |
     And that user has 1 squeek
+    And the following user:
+      | username | joe |
+    And that user has 1 squeek
     And I'm signed in as joe
-    And I have 1 squeek
     When I go to the homepage
     And I click "joe"
     Then I should be on my profile page

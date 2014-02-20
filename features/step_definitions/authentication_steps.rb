@@ -11,7 +11,7 @@ Given(/^I have signed up as "(.*?)"$/) do |name|
 end
 
 Given(/^I'm signed in as "?(.*?)"?$/) do |username|
-  @user = Fabricate(:user, username: username)
+  @user = User.where(username: username).first || Fabricate(:user, username: username)
   visit new_user_session_path
   fill_in "Email / Username", with: username
   fill_in "Password", with: "password"

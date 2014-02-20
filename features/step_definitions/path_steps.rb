@@ -14,7 +14,7 @@ def path_to path_descriptor
     user = User.where(username: $1 ).first
     user_path(user)
   else
-    raise "Oh noes! You need to specify where this route goes in step_defintions/path_steps.rb"
+    path_descriptor
   end
 end
 

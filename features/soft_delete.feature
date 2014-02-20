@@ -10,7 +10,6 @@ Feature: Delete a squeek
     And I press "Squawk"
     Then I should see "Your squeek has been posted"
     And I should see "Big pile of sticks!"
-    And the squeek should not be hidden
     And I press "Delete"
     Then I should see "Your squeek has been deleted"
     Then I should not see "Big pile of sticks!"

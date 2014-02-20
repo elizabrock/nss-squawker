@@ -6,7 +6,10 @@ Feature: Administrative Portal
   Background:
     Given the following admin user:
       | email | admin@example.com |
-    Given the squeek "Hello" by "mary"
+    Given the following user:
+      | username | mary |
+    And that user has the following squeek:
+      | body | Hello |
     When I go to the admin portal
     And I fill in "admin@example.com" for "Email"
     And I fill in "password" for "Password"

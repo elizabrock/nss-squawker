@@ -7,5 +7,5 @@ Feature: Logging into Application through Twitter
   Scenario: User signs in successfully through twitter account
     When I go to the homepage
     And I follow "Sign In"
-    And I login to "Twitter"
+    And I log in with Twitter
     Then I should see "Successfully authenticated from Twitter account."

@@ -3,3 +3,7 @@ Fabricator(:squeek) do
   consumers_only false
   user
 end
+
+Fabricator(:consumer_only_squeek, from: :squeek) do
+  consumers_only true
+end

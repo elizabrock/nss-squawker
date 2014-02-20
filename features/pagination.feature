@@ -4,7 +4,12 @@ Feature: Viewing activity feed with pagination
   I want to see squeeks split into pages
 
   Background:
-    Given a set of 4 squeeks
+    Given the following squeeks:
+      | body     |
+      | Squeek 1 |
+      | Squeek 2 |
+      | Squeek 3 |
+      | Squeek 4 |
 
   Scenario: Squeeks per page is limited
     When I go to the homepage

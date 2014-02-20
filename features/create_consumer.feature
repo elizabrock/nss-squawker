@@ -7,7 +7,8 @@ Feature: Add Consumer
 
   Scenario: Consumer button appears for non-Consumer
     Given I'm signed in as "joe"
-    And a user named "sally" is created
+    And the following user:
+      | username | sally |
     When I go to sally's profile page
     Then I should see an "Broadcast to @sally" button
 
@@ -18,7 +19,8 @@ Feature: Add Consumer
 
   Scenario: Clicking "Add Consumer" will replace form with success message
     Given I'm signed in as "joe"
-    And a user named "sally" is created
+    And the following user:
+      | username | sally |
     When I go to sally's profile page
     And I press "Broadcast to @sally"
     Then I should see "You are broadcasting to @sally."
