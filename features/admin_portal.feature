@@ -13,27 +13,66 @@ Feature: Administrative Portal
 
   Scenario: Dashboard should have Squeek index
     Then I should see "Squeeks"
-    Then I click "Squeeks"
+    When I click "Squeeks"
     Then I should see "Hello"
 
   Scenario: Admin should be able to delete Squeeks
     Then I should see "Squeeks"
-    Then I click "Squeeks"
-    Then I click "Delete"
+    When I click "Squeeks"
+    And I click "Delete"
     Then I should see 0 squeeks in the database
 
   Scenario: Admin should have User Index
-    Then I click "Users"
+    When I click "Users"
     Then I should see "mary"
 
   Scenario: Admin should be able to edit Users
-    Then I click "Users"
+    When I click "Users"
     Then I should see "mary"
-    Then I click "Edit"
-    Then I fill in "newemail@mail.com" for "Email"
+    When I click "Edit"
+    And I fill in "newemail@mail.com" for "Email"
     And I fill in "newUser" for "Username"
     And I press "Update User"
     Then I should see "User was successfully updated"
-    Then I go to the admin section for "users"
-    And I should see "newemail@mail.com"
+    When I go to the admin section for "users"
+    Then I should see "newemail@mail.com"
     And I should see "newUser"
+
+  Scenario: Admin should have Admin Index
+    When I click "Admin Users"
+    Then I should see "admin@example.com"
+
+  Scenario: Admin should be able to add Admins
+    When I click "Admin Users"
+    And I click "New Admin User"
+    And I fill in "newadmin@mail.com" for "Email"
+    And I fill in "password1" for "Password"
+    And I fill in "password1" for "Password confirmation"
+    And I press "Create Admin user"
+    Then I should see "Admin user was successfully created"
+    When I click "Admin Users"
+    Then I should see "newadmin@mail.com"
+    And I should see "admin@example.com"
+    When I follow "Logout"
+    And I go to the Admin Portal
+    And I fill in "newadmin@mail.com" for "Email"
+    And I fill in "password1" for "Password"
+    And I press "Login"
+    Then I should see "Signed in successfully"
+
+  Scenario: Admin should be able to edit Admins
+    When I click "Admin Users"
+    And I click "Edit"
+    And I fill in "newemail@example.com" for "Email"
+    And I fill in "password1" for "Password"
+    And I fill in "password1" for "Password confirmation"
+    And I press "Update Admin user"
+    # You automatically get logged out..
+    When I go to the Admin Portal
+    And I fill in "newemail@example.com" for "Email"
+    And I fill in "password1" for "Password"
+    And I press "Login"
+    Then I should see "Signed in successfully"
+    When I click "Admin Users"
+    Then I should see "newemail@example.com"
+    And I should not see "admin@example.com"
