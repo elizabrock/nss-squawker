@@ -1,5 +1,5 @@
 class SqueeksController < ApplicationController
-  before_filter :load_squeeks
+  before_filter :load_squeeks, only: [:index, :create]
   autocomplete :user, :username, :full => true
 
   def index

@@ -1,16 +1,13 @@
 class User < ActiveRecord::Base
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:twitter]
 
   extend FriendlyId
   friendly_id :username
 
   include Gravtastic
   has_gravatar
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:twitter]
 
   has_many :squeeks, :inverse_of => :user
   has_many :relationships, foreign_key: "consumer_id"

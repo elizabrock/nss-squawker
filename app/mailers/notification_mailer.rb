@@ -8,5 +8,4 @@ class NotificationMailer < ActionMailer::Base
     @squeek = squeek
     mail(to: @user.email, subject: 'Someone has mentioned you in a squeek!')
   end
-
 end
