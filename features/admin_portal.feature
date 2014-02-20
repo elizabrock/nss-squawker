@@ -6,7 +6,7 @@ Feature: Administrative Portal
   Background: 
     Given an admin exists with email "admin@example.com" and password "password"
     Given the squeek "Hello" by "mary"
-    When I go to the Admin Portal
+    When I go to the admin portal
     And I fill in "admin@example.com" for "Email"
     And I fill in "password" for "Password"
     And I press "Login"
@@ -54,7 +54,7 @@ Feature: Administrative Portal
     Then I should see "newadmin@mail.com"
     And I should see "admin@example.com"
     When I follow "Logout"
-    And I go to the Admin Portal
+    And I go to the admin portal
     And I fill in "newadmin@mail.com" for "Email"
     And I fill in "password1" for "Password"
     And I press "Login"
@@ -68,7 +68,7 @@ Feature: Administrative Portal
     And I fill in "password1" for "Password confirmation"
     And I press "Update Admin user"
     # You automatically get logged out..
-    When I go to the Admin Portal
+    When I go to the admin portal
     And I fill in "newemail@example.com" for "Email"
     And I fill in "password1" for "Password"
     And I press "Login"
