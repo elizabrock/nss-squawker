@@ -132,6 +132,8 @@ GEM
     foundation-rails (5.1.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    friendly_id (5.0.2)
+      activerecord (~> 4.0.0)
     geocoder (1.1.9)
     gherkin (2.12.2)
       multi_json (~> 1.3)
@@ -349,6 +351,7 @@ DEPENDENCIES
   figaro
   fog
   foundation-rails
+  friendly_id
   geocoder
   gravtastic
   haml-rails

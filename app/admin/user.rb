@@ -1,11 +1,15 @@
 ActiveAdmin.register User do
   actions :all, except: :destroy
-  controller do 
+  controller do
     def permitted_params
       params.permit!
     end
+
+    def resource
+      User.where(username: params[:id]).first!
+    end
   end
-  
+
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -18,5 +22,5 @@ ActiveAdmin.register User do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
+
 end

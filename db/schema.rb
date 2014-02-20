@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20140219172906) do
     t.string   "location"
     t.boolean  "hidden",         default: false, null: false
     t.boolean  "consumers_only"
+    t.string   "image"
+    t.boolean  "hidden",     default: false, null: false
   end
 
   create_table "users", force: true do |t|
