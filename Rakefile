@@ -5,6 +5,8 @@ require File.expand_path('../config/application', __FILE__)
 
 Squawker::Application.load_tasks
 
-require 'coveralls/rake/task'
-Coveralls::RakeTask.new
-task :test_with_coveralls => [:spec, :cucumber, 'coveralls:push']
+if Rails.env.test?
+  require 'coveralls/rake/task'
+  Coveralls::RakeTask.new
+  task :test_with_coveralls => [:spec, :cucumber, 'coveralls:push']
+end
