@@ -34,10 +34,12 @@ class User < ActiveRecord::Base
   end
 
   def consuming?(broadcaster)
-    relationships.find_by(broadcaster_id: broadcaster.id)
+    return unless broadcaster
+    relationships.find_by(broadcaster: broadcaster)
   end
 
   def consume!(broadcaster)
-    relationships.create!(broadcaster_id: broadcaster.id)
+    return unless broadcaster
+    relationships.create!(broadcaster: broadcaster)
   end
 end

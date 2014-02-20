@@ -1,14 +1,11 @@
 = simple_form_for @squeek, :html => {:multipart => true} do |f|
   .inputs
     .row
-      .small-12.columns
+      .small-6.columns
         = f.input :body, label: 'Squeek here', :autofocus => true, :url => autocomplete_user_username_squeeks_path, :as => :text
-    .row
-      .small-12.columns
-        = f.input :image
-    .row
-      .small-12.columns
-        = f.input :consumers_only, label: "Consumers only?", checked: false, hint:"If checked, this post will only be visible to the people to which you broadcast squeeks"
+      .small-6.columns
+        = f.input :image, hint: "An optional image to include with your squeek!"
+        = f.input :consumers_only, label: " Consumers only?", checked: false, hint:"If checked, this post will only be visible to the people to which you broadcast squeeks"
     .row
       .small-6.columns
-        =f.button :submit, 'Squawk', class: 'button tiny radius'
+        = f.button :submit, 'Squawk', class: 'button tiny radius'

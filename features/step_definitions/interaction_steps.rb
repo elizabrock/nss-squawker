@@ -14,8 +14,8 @@ When(/^I press "(.*?)"$/) do |text|
   click_button(text)
 end
 
-When(/^I press the first "(.*?)"$/) do |text|
-  first(:button, text).click
+When(/^I press the last "(.*?)"$/) do |text|
+  all(:button, text).last.click
 end
 
 Then(/^I should see(?::)? "(.*)"$/) do |text|

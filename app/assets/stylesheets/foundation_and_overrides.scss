@@ -1222,3 +1222,14 @@ body{
 .contain-to-grid .top-bar{margin-bottom: 20px;}
 
 .row + .row { margin-top: 1.5em; }
+
+ul.squeeks {
+  list-style-type: none;
+  margin: 0;
+  li.squeek {
+    @include panel;
+    img {
+      margin: 0 1.25em 0 0;
+    }
+  }
+}

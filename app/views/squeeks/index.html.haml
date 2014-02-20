@@ -1,17 +1,20 @@
-.row
-  .small-9.columns
-    %h2.subheader SQUEEK!
-
 - if user_signed_in?
-  = render partial: "squeeks/new"
+  .row
+    .small-12.columns
+      .panel
+        %h2 Squeek!
+        = render partial: "squeeks/new"
 - else
   .row
     .small-9.columns
-      %p Sign in or Sign up to post a squeek
+      .panel
+        %p
+          = link_to "Sign in", new_user_session_path
+          or
+          = link_to "Sign up", new_user_registration_path
+          to post a squeek.
 .row
   .small-9.columns
     %ul.squeeks.squawked
-      - @squeeks.each do |squeek|
-        - if squeek.viewable_by? current_user
-          = render squeek
+      = render @squeeks
     = paginate @squeeks

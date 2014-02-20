@@ -10,14 +10,16 @@ Then(/^the squeek should be labeled "(.*?)"$/) do |city|
   end
 end
 
-Then(/^I should see "(.*?)" within the squeeks feed$/) do |text|
+Then(/^I should see "(.*?): (.*?)" within the squeeks feed$/) do |username, text|
   within(".squeeks.squawked") do
+    page.should have_content(username)
     page.should have_content(text)
   end
 end
 
-Then(/^I should not see "(.*?)" within the squeeks feed$/) do |text|
+Then(/^I should not see "(.*?): (.*?)" within the squeeks feed$/) do |username, text|
   within(".squeeks.squawked") do
+    page.should_not have_content(username)
     page.should_not have_content(text)
   end
 end

@@ -4,32 +4,26 @@
       .small-6.medium-3.columns
         = image_tag @user.gravatar_url, class: "th radius"
       .small-12.medium-6.columns
+        %h1= "@#{@user.username}'s profile"
         .panel
-          %h1= "@#{@user.username}"
           %p= @user.tagline
       .small-12.medium-3.columns
         - if current_user == @user
           = link_to "Edit Your Profile", edit_user_registration_path, class: "button"
         - elsif @user.consuming?(current_user)
           %p You are broadcasting to @#{@user.username}.
-        - else
+        - elsif current_user
           %div#add_consumer_form
             = form_for(current_user.relationships.build(broadcaster_id: @user.id)) do |f|
               = f.hidden_field :broadcaster_id
               = f.submit "Broadcast to @#{@user.username}", class: "button"
 .row
   .small-6.columns
-    .panel
-      %h2 Squeeks:
-      %ul.squeeks.squawked
-        - @user.squeeks.each do |squeek|
-          -if squeek.viewable_by? current_user
-            = render squeek
-  .small-6.columns
-    .panel
-      %h2 Favorites:
-      %ul.squeeks.favorites
-        - @user.favorite_squeeks.each do |squeek|
-          -if squeek.viewable_by? current_user
-            = render squeek
+    %h2 Squeeks:
+    %ul.squeeks.squawked
+      = render @user.squeeks
 
+  .small-6.columns
+    %h2 Favorites:
+    %ul.squeeks.favorites
+      = render @user.favorite_squeeks

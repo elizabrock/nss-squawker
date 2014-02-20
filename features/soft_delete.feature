@@ -35,7 +35,7 @@ Feature: Delete a squeek
     Then I should see "Your squeek has been posted"
     And I should see "Big pile of sticks!"
     And I should see "Orange you glad I didn't say banana?"
-    And I press the first "Delete"
+    And I press the last "Delete"
     Then I should see "Your squeek has been deleted"
     Then I should not see "Big pile of sticks!"
     And I should see "Orange you glad I didn't say banana?"

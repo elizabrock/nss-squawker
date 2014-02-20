@@ -21,5 +21,5 @@ end
 
 Then(/^I should see my gravatar image$/) do
   gravatar_id = Digest::MD5.hexdigest(@user.email.downcase)
-  page.should have_css("img[src='https://secure.gravatar.com/avatar/#{gravatar_id}.png?r=PG']")
+  page.should have_css("img[src='https://secure.gravatar.com/avatar/#{gravatar_id}.png?r=PG&s=300']")
 end

@@ -1,7 +1,16 @@
-%li
-  = link_to("@#{squeek.user.username}", squeek.user) + ": " + squeek.body.html_safe
-  = button_to("Delete", squeek_path(squeek), { method: :delete, data: {id: squeek.id }} )
-  %span.location= "#{squeek.location}"
-  .image
-    =image_tag squeek.image_url(:thumb).to_s
-  = link_to "Favorite this squeek", squeek_favorite_path(squeek), method: :post
+-if squeek.viewable_by? current_user
+  %li.squeek
+    .row
+      .small-3.columns
+        = link_to squeek.user do
+          = image_tag squeek.user.gravatar_url, class: "th radius left"
+          %h3.text-center= "@#{squeek.user.username}"
+          %p.location= time_ago_in_words(squeek.created_at) + " ago from " + squeek.location
+      .small-9.columns
+        %p= squeek.body.html_safe
+        - if squeek.image.present?
+          = image_tag squeek.image_url(:thumb).to_s, class: "th radius"
+    .row
+      .small-12.columns
+        = button_to("Delete", squeek_path(squeek), method: :delete, data: {id: squeek.id }, class: "button right" )
+        = link_to "Favorite this squeek", squeek_favorite_path(squeek), method: :post, class: "button right"

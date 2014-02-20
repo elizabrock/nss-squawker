@@ -17,17 +17,13 @@
         %section.top-bar-section
           %ul.right
             - if current_user
-              %li{:class => 'has_form'}
-                = link_to "My Profile", user_path(current_user)
+              %li= link_to "My Profile", user_path(current_user)
               %li.divider
-              %li{:class => 'has_form'}
-                = link_to "Sign Out", destroy_user_session_path, method: :delete
+              %li= link_to "Sign Out", destroy_user_session_path, method: :delete
             - else
-              %li{:class => 'has_form'}
-                = link_to "Sign Up", new_user_registration_path
+              %li= link_to "Sign Up", new_user_registration_path
               %li.divider
-              %li{:class => 'has_form'}
-                = link_to "Sign In", new_user_session_path
+              %li= link_to "Sign In", new_user_session_path
   .row
     .small-1.columns
       =image_tag "tucan.png", id: 'tucan'

@@ -1,26 +1,23 @@
 .row
-  .small-offset-3.small-9.columns
-    %h2.subheader Sign up
-
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    = devise_error_messages!
-    .inputs
-      .row
-        .small-offset-3.small-6.columns
-          = f.input :username, label: 'Username', :autofocus => true
-      .row
-        .small-offset-3.small-6.columns
-          = f.input :email, label: 'Email'
-      .row
-        .small-offset-3.small-6.columns
-          = f.input :password, label: 'Password'
-      .row
-        .small-offset-3.small-6.columns
-          = f.input :password_confirmation, label: 'Password confirmation'
-    .actions
-      .row
-        .small-offset-3.small-3.columns
-          = f.button :submit, 'Sign up', class: 'button tiny radius'
+  .small-12.columns
+    %h2 Sign up
 .row
-  .small-offset-3
+  .small-12.medium-6.columns
+    .panel
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .inputs
+          = f.input :username, label: 'Username', :autofocus => true
+          = f.input :email, label: 'Email'
+          = f.input :password, label: 'Password'
+          = f.input :password_confirmation, label: 'Password confirmation'
+        .actions
+          = f.button :submit, 'Sign up', class: 'button radius'
+  .small-12.medium-6.columns
+    .panel
+      %p Alternatively, you can sign up via. Twitter!
+      - resource_class.omniauth_providers.each do |provider|
+        = link_to "Sign up with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "button"
+.row
+  .small-3.columns
     = render "devise/shared/links"

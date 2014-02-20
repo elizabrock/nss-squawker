@@ -21,19 +21,19 @@ Feature: Viewing activity feed with pagination
 
   Scenario: Page one should show the right squeeks
     When I go to the homepage
-    Then I should see "Squeek 1"
+    Then I should see "Squeek 4"
 
   Scenario: Previous and Next links change pages correctly
     When I go to the homepage
     And I click "Next"
-    Then I should see "Squeek 4"
-    And I click "Prev"
     Then I should see "Squeek 1"
+    And I click "Prev"
+    Then I should see "Squeek 4"
 
   Scenario: Page number links take you to the correct page
     When I go to the homepage
     And I click "2"
-    Then I should see "Squeek 4"
+    Then I should see "Squeek 1"
 
   Scenario: Previous should not be on home page
     When I go to the homepage

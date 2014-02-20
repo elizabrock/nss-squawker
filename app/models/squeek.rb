@@ -16,7 +16,7 @@ class Squeek < ActiveRecord::Base
   before_create :create_mentions, :lookup_location
   after_create :mention_notify
 
-  default_scope { where("hidden is false") }
+  default_scope { where("hidden is false").order(created_at: :desc) }
 
   def destroy
     self.hidden = true

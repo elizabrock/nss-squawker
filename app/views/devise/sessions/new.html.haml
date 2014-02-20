@@ -1,22 +1,20 @@
 .row
-  .small-offset-3.small-9.columns
-    %h2.subheader Sign in
-  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    .inputs
-      .row
-        .small-offset-3.small-6.columns
-          = f.input :email, label: 'Email / Username', :autofocus => true
-      .row
-        .small-offset-3.small-6.columns
-          = f.input :password, label: 'Password'
-      .row
-        .small-offset-3.small-6.columns
-          - if devise_mapping.rememberable?
-            = f.input_field :remember_me, as: :boolean, inline_label: 'Remember me'
-    .actions
-      .row
-        .small-offset-3.small-6.columns
-          = f.button :submit, "Sign in", class: 'button tiny radius'
+  .small-12.columns
+    %h2 Sign in
 .row
-  .small-offset-3
+  .small-12.medium-6.columns
+    .panel
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        .inputs
+          = f.input :email, label: 'Email / Username', :autofocus => true
+          = f.input :password, label: 'Password'
+        .actions
+          = f.button :submit, "Sign in", class: 'button tiny radius'
+  .small-12.medium-6.columns
+    .panel
+      %p Alternatively, you can sign in via. Twitter!
+      - resource_class.omniauth_providers.each do |provider|
+        = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "button"
+.row
+  .small-3.columns
     = render "devise/shared/links"
