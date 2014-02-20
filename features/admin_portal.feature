@@ -3,8 +3,9 @@ Feature: Administrative Portal
   I want the admin panel to list all squawks and users
   so I can moderate squawker
 
-  Background: 
-    Given an admin exists with email "admin@example.com" and password "password"
+  Background:
+    Given the following admin user:
+      | email | admin@example.com |
     Given the squeek "Hello" by "mary"
     When I go to the admin portal
     And I fill in "admin@example.com" for "Email"

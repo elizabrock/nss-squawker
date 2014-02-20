@@ -9,8 +9,9 @@ Feature: Admin user can see deleted squeeks
     And I fill in "Squeek here" with "She dropped him off at band practice."
     And I press "Squawk"
     And I press "Delete"
-    And an admin exists with email "admin@example.com" and password "password"
-    And I go to the admin portal
+    Given the following admin user:
+      | email | admin@example.com |
+    When I go to the admin portal
     And I fill in "admin@example.com" for "Email"
     And I fill in "password" for "Password"
     And I press "Login"
