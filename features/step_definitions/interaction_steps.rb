@@ -22,6 +22,14 @@ Then(/^I should not see(?::)? "([^"]*)"$/) do |text|
   page.should_not have_content(text)
 end
 
+Then(/^I should see an "(.*?)" button$/) do |button_text|
+  page.should have_selector("input[value='#{button_text}']")
+end
+
+Then(/^I should not see an "(.*?)" button$/) do |button_text|
+  page.should_not have_selector("input[value='#{button_text}']")
+end
+
 When(/^I fill in "(.*?)" for "(.*?)"$/) do |content, field|
   fill_in(field, with: content)
 end
