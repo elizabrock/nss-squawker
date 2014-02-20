@@ -3,8 +3,9 @@ rvm:
   - "2.0.0"
 
 addons:
-    code_climate:
-        repo_token: a8f182bbf5cfc20bd6f589718a24b4dcb1b9a1aa14bad744c3ed03f0501c7086
+  code_climate:
+    repo_token: a8f182bbf5cfc20bd6f589718a24b4dcb1b9a1aa14bad744c3ed03f0501c7086
 
-before_install:
-  - phantomjs --version
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
