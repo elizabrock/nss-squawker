@@ -5,14 +5,15 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=ABeeZee|Freckle+Face'
+    = stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Gabriela|Overlock|Averia+Serif+Libre:300,400,700,300italic'
   %body
     .contain-to-grid
       %nav.top-bar
         %ul.title-area
           %li
             .name
-              %h1#title Squawker
+              %h1#title
+                = link_to "Squawker", root_path
         %section.top-bar-section
           %ul.right
             - if current_user

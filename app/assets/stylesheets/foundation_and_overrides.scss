@@ -38,7 +38,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Averia Serif Libre", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -113,7 +113,7 @@
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-// $header-font-family: $body-font-family;
+$header-font-family: 'Averia Serif Libre', serif;
 // $header-font-weight: 300;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -762,7 +762,7 @@
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color(#fff, $lightness: -5%);
+$panel-bg: scale-color(#fff, $lightness: -5%, $alpha: -25%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -1081,7 +1081,7 @@
 // We use these to control border styles
 // $thumb-border-style: solid;
 // $thumb-border-width: 4px;
-// $thumb-border-color: #fff;
+$thumb-border-color: scale-color(#fff, $alpha: -20%);;
 // $thumb-box-shadow: 0 0 0 1px rgba(#000,.2);
 // $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
 
@@ -1213,12 +1213,12 @@ body{
 }
 
 #title{
-  font-family: 'Freckle Face', cursive;
+  font-family: 'Gabriela', serif;
   color: white;
   font-size: 3em;
-  text-shadow: 1px 1px rgb(189,0,0);
+  text-shadow: 1px 1px rgb(189,189,189);
 }
 
-body{font-family: 'ABeeZee', sans-serif;}
-
 .contain-to-grid .top-bar{margin-bottom: 20px;}
+
+.row + .row { margin-top: 1.5em; }

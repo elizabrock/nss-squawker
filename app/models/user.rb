@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   friendly_id :username
 
   include Gravtastic
-  has_gravatar
+  has_gravatar size: 300
 
   has_many :squeeks, :inverse_of => :user
   has_many :relationships, foreign_key: "consumer_id"
