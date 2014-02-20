@@ -1,3 +1,15 @@
+Given(/^I post a squeek$/) do
+  visit root_path
+  fill_in("Squeek here", :with => "This is some sample text.")
+  click_button("Squawk")
+end
+
+Then(/^the squeek should be labeled "(.*?)"$/) do |city|
+  within(".location") do
+    page.should have_content(city)
+  end
+end
+
 Given(/^the squeek "(.*?)" by "(.*?)"$/) do |body, username|
   user = Fabricate(:user, username: username)
   Squeek.create!(body: body, user: user, consumers_only: false)
