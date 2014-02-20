@@ -12,11 +12,3 @@ Given(/^a consumer\-only squeek with content "(.*?)" created by "(.*?)"$/) do |s
   user = User.find_by(username: name)
   Squeek.create!(body: squeek, user: user, consumers_only: true)
 end
-
-Given(/^I am logged in as "(.*?)"$/) do |username|
-  visit new_user_session_path
-  fill_in "Email / Username", with: username
-  fill_in "Password", with: "password"
-  click_button "Sign in"
-  page.should have_content("Signed in successfully")
-end

@@ -4,12 +4,8 @@ When /^I key in "(.*?)" with "(.*?)"$/ do |field, content|
   end
 end
 
-Then(/^"(.*?)" should be filled in with "(.*?)"$/) do |field_name, text|
-  page.should have_field(field_name, with: text)
-end
-
-When /^I click the text link "(.*?)"$/ do |text|
-  find('a', :text => text).click
+When /^I click the link "(.*?)"$/ do |text|
   # click_link(link) requires an href,
   # while this simply searches for an <a> tag by text.
+  find('a', :text => text).click
 end

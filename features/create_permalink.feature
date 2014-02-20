@@ -4,6 +4,6 @@ Feature: Permalink
   I want see the correct URL for the page and post that I am viewing
 
 Scenario: User "arielle919" visits their profile page
-  Given a user named "arielle919" signs up
+  Given I have signed up as "arielle919"
   When I click "My Profile"
   Then the URL will display as "/users/arielle919"

@@ -1,3 +1,15 @@
+Given(/^I have signed up as "(.*?)"$/) do |name|
+  steps %Q{
+    When I go to the homepage
+    And I follow "Sign Up"
+    And I fill in "#{name}" for "Username"
+    And I fill in "arielle919@gmail.com" for "Email"
+    And I fill in "password" for "user_password"
+    And I fill in "password" for "Password confirmation"
+    And I press "Sign up"
+  }
+end
+
 Given(/^I'm signed in as "?(.*?)"?$/) do |username|
   @user = Fabricate(:user, username: username)
   visit new_user_session_path

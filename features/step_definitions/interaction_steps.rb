@@ -30,6 +30,10 @@ When(/^I fill in "(.*?)" with "(.*?)"$/) do |field, content|
   fill_in(field, with: content)
 end
 
+Then(/^"(.*?)" should be filled in with "(.*?)"$/) do |field_name, text|
+  page.should have_field(field_name, with: text)
+end
+
 When (/^I upload a file "(.*?)"$/) do |file|
   attach_file("squeek_image", File.join(Rails.root, "/features/support/files/#{file}"))
 end
